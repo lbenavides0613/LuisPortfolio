@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Luis Carlos Benavides Fiallo — Senior Product Manager with 10 years of experience driving revenue growth and product innovation in logistics and fintech. Open to US opportunities.">
+  <meta name="description" content="Luis Carlos Benavides Fiallo — Senior Product Manager with 10+ years generating $10M+ in revenue across Logistics and FinTech. Expert in AI-driven product development. Open to US opportunities.">
   <title>Luis Benavides | Senior Product Manager</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -25,13 +25,21 @@
       </button>
 
       <ul class="nav__menu" id="navMenu" role="list">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#case-studies" class="nav__link">Case Studies</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#education" class="nav__link">Education</a></li>
-        <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
+        <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#case-studies" class="nav__link" data-i18n="nav.case-studies">Case Studies</a></li>
+        <li><a href="#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#education" class="nav__link" data-i18n="nav.education">Education</a></li>
+        <li><a href="#contact" class="nav__link nav__link--cta" data-i18n="nav.contact">Contact</a></li>
       </ul>
+
+      <div class="nav__controls">
+        <button class="nav__ctrl-btn" id="langToggle" aria-label="Switch language" title="Switch language">EN</button>
+        <button class="nav__ctrl-btn nav__ctrl-btn--icon" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -46,18 +54,18 @@
         <div class="hero__content">
           <span class="hero__badge">
             <span class="hero__badge-dot"></span>
-            Open to US Opportunities
+            <span data-i18n="hero.badge">Open to US Opportunities</span>
           </span>
           <h1 class="hero__name">Luis Carlos<br>Benavides Fiallo</h1>
-          <p class="hero__title">Senior Product Manager</p>
-          <p class="hero__tagline">
-            10 years turning user insights into products that
-            <strong>grow revenue</strong> and <strong>reduce costs</strong>.
-            Specialized in logistics, fintech, and AI-driven solutions.
+          <p class="hero__title" data-i18n="hero.title">Senior Product Manager</p>
+          <p class="hero__tagline" data-i18n-html="hero.tagline">
+            10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech.
+            Expert in "0 to 1" product development and scaling through
+            <strong>AI-driven automation</strong>.
           </p>
           <div class="hero__actions">
-            <a href="#case-studies" class="btn btn--primary">View Case Studies</a>
-            <a href="#contact" class="btn btn--outline">Get In Touch</a>
+            <a href="#case-studies" class="btn btn--primary" data-i18n="hero.cta1">View Case Studies</a>
+            <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Get In Touch</a>
           </div>
         </div>
 
@@ -68,28 +76,27 @@
                 <span class="metric-card__number" data-target="10">0</span>
                 <span class="metric-card__unit">+</span>
               </div>
-              <p class="metric-card__label">Years Experience</p>
+              <p class="metric-card__label" data-i18n="hero.m.years">Years Experience</p>
             </div>
             <div class="metric-card metric-card--accent">
               <div class="metric-card__value">
-                <span class="metric-card__number" data-target="12">0</span>
-                <span class="metric-card__unit">%</span>
+                <span class="metric-card__prefix">$</span><span class="metric-card__number" data-target="10">0</span><span class="metric-card__unit">M+</span>
               </div>
-              <p class="metric-card__label">Profit Growth</p>
+              <p class="metric-card__label" data-i18n="hero.m.revenue">Revenue Generated</p>
             </div>
             <div class="metric-card metric-card--teal">
               <div class="metric-card__value">
                 <span class="metric-card__number" data-target="25">0</span>
                 <span class="metric-card__unit">+</span>
               </div>
-              <p class="metric-card__label">People Led</p>
+              <p class="metric-card__label" data-i18n="hero.m.people">People Led</p>
             </div>
             <div class="metric-card metric-card--dark">
               <div class="metric-card__value">
                 <span class="metric-card__number" data-target="500">0</span>
                 <span class="metric-card__unit">+</span>
               </div>
-              <p class="metric-card__label">Units Launched</p>
+              <p class="metric-card__label" data-i18n="hero.m.units">Units Launched</p>
             </div>
           </div>
         </div>
@@ -109,37 +116,37 @@
       <div class="metrics-bar__container">
         <div class="metrics-bar__item fade-in">
           <p class="metrics-bar__value">
-            <strong data-target="20">0</strong><span>%</span>
+            <span class="metrics-bar__prefix">$</span><strong data-target="10">0</strong><span>M+</span>
           </p>
-          <p class="metrics-bar__label">Productivity Increase</p>
+          <p class="metrics-bar__label" data-i18n="mb.revenue">Revenue Generated</p>
         </div>
         <div class="metrics-bar__divider" aria-hidden="true"></div>
         <div class="metrics-bar__item fade-in">
           <p class="metrics-bar__value">
-            <strong data-target="15">0</strong><span>%</span>
+            <strong data-target="98">0</strong><span>%</span>
           </p>
-          <p class="metrics-bar__label">Profitability Boost</p>
+          <p class="metrics-bar__label" data-i18n="mb.ontime">On-Time Delivery Rate</p>
         </div>
         <div class="metrics-bar__divider" aria-hidden="true"></div>
         <div class="metrics-bar__item fade-in">
           <p class="metrics-bar__value">
             <span class="metrics-bar__prefix">$</span><strong data-target="150">0</strong><span>K</span>
           </p>
-          <p class="metrics-bar__label">Revenue — Year One Launch</p>
+          <p class="metrics-bar__label" data-i18n="mb.launch">Revenue — Year One Launch</p>
         </div>
         <div class="metrics-bar__divider" aria-hidden="true"></div>
         <div class="metrics-bar__item fade-in">
           <p class="metrics-bar__value">
             <strong data-target="10">0</strong><span>%</span>
           </p>
-          <p class="metrics-bar__label">Cost Reduction via AI</p>
+          <p class="metrics-bar__label" data-i18n="mb.ai">Cost Reduction via AI</p>
         </div>
         <div class="metrics-bar__divider" aria-hidden="true"></div>
         <div class="metrics-bar__item fade-in">
           <p class="metrics-bar__value">
             <strong data-target="3">0</strong><span>%</span>
           </p>
-          <p class="metrics-bar__label">Profit per Load Increase</p>
+          <p class="metrics-bar__label" data-i18n="mb.profit">Profit per Load Increase</p>
         </div>
       </div>
     </section>
@@ -150,26 +157,31 @@
     <section class="about section" id="about" aria-label="About me">
       <div class="container">
         <div class="section__header fade-in">
-          <span class="section__label">About</span>
-          <h2 class="section__title">The PM Behind the Numbers</h2>
+          <span class="section__label" data-i18n="about.label">About</span>
+          <h2 class="section__title" data-i18n="about.title">The PM Behind the Numbers</h2>
+        </div>
+
+        <!-- Profile Photo -->
+        <div class="about__photo-wrap fade-in">
+          <img src="assets/foto Luis benavides.jpg" alt="Luis Carlos Benavides Fiallo — Senior Product Manager" class="about__photo">
         </div>
 
         <div class="about__grid">
           <div class="about__text fade-in">
-            <p>
-              Senior Product Manager with <strong>10 years of experience</strong>, passionate about discovering
-              user needs and transforming them into successful products. I balance business goals with customer
-              needs to deliver real value.
+            <p data-i18n-html="about.p1">
+              Strategic Lead Product Manager with <strong>10+ years of experience</strong> and a track record
+              of generating over <strong>USD $10M in revenue</strong> across Logistics and FinTech. Expert
+              in "0 to 1" product development and scaling through AI-driven automation.
             </p>
-            <p>
-              With experience across <strong>logistics and fintech</strong>, I've led cross-functional teams to
-              deliver innovative products — from POCs and MVPs to full-scale mobile apps and web platforms —
-              resulting in measurable impact at every stage.
+            <p data-i18n-html="about.p2">
+              Currently leading teams of <strong>25+ people</strong> to integrate AI agents, predictive models,
+              and new product features into core operations — resulting in a <strong>10% reduction in costs</strong>
+              and a <strong>98% on-time delivery rate</strong>.
             </p>
-            <p>
-              My approach spans the entire product lifecycle: from user discovery and precise PRDs, through
-              development with agile teams, to launch and data-driven iteration. I speak the language of both
-              engineers and executives.
+            <p data-i18n="about.p3">
+              Strong background in data-driven decision-making (SQL, Power BI), roadmap prioritization (RICE),
+              and aligning technical delivery with company OKRs. I speak the language of both engineers and
+              executives.
             </p>
           </div>
 
@@ -177,29 +189,29 @@
             <div class="highlight-item">
               <div class="highlight-item__icon" aria-hidden="true">&#127919;</div>
               <div>
-                <h3 class="highlight-item__title">Product Discovery</h3>
-                <p>Design Thinking, user interviews, and market research to define the right problems before building solutions.</p>
+                <h3 class="highlight-item__title" data-i18n="about.h1">Product Discovery</h3>
+                <p data-i18n="about.p.h1">Design Thinking, user interviews, and market research to define the right problems before building solutions.</p>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-item__icon" aria-hidden="true">&#128202;</div>
               <div>
-                <h3 class="highlight-item__title">Data-Driven Decisions</h3>
-                <p>SQL, Power BI, and Tableau to measure, iterate, and prove impact with hard numbers.</p>
+                <h3 class="highlight-item__title" data-i18n="about.h2">Data-Driven Decisions</h3>
+                <p data-i18n="about.p.h2">SQL, Power BI, and Tableau to measure, iterate, and prove impact with hard numbers.</p>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-item__icon" aria-hidden="true">&#129302;</div>
               <div>
-                <h3 class="highlight-item__title">AI &amp; Automation</h3>
-                <p>Led creation of AI agents and automation flows that cut operational costs by 10%.</p>
+                <h3 class="highlight-item__title" data-i18n="about.h3">AI &amp; Automation</h3>
+                <p data-i18n="about.p.h3">Led creation of AI agents and automation flows that cut operational costs by 10%.</p>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-item__icon" aria-hidden="true">&#128640;</div>
               <div>
-                <h3 class="highlight-item__title">Go-to-Market</h3>
-                <p>End-to-end launch strategy: roadmap prioritization (RICE), stakeholder alignment, and release planning.</p>
+                <h3 class="highlight-item__title" data-i18n="about.h4">Go-to-Market</h3>
+                <p data-i18n="about.p.h4">End-to-end launch strategy: roadmap prioritization (RICE), stakeholder alignment, and release planning.</p>
               </div>
             </div>
           </div>
@@ -213,8 +225,8 @@
     <section class="experience section" id="experience" aria-label="Work experience">
       <div class="container">
         <div class="section__header fade-in">
-          <span class="section__label">Career</span>
-          <h2 class="section__title">Work Experience</h2>
+          <span class="section__label" data-i18n="exp.label">Career</span>
+          <h2 class="section__title" data-i18n="exp.title">Work Experience</h2>
         </div>
 
         <div class="timeline">
@@ -234,12 +246,12 @@
                 </div>
                 <span class="timeline__period">Nov 2024 &ndash; Present</span>
               </div>
-              <p class="timeline__industry">Last-mile &amp; regional logistics &middot; Supply chain management</p>
+              <p class="timeline__industry" data-i18n-html="bt.industry">Last-mile &amp; regional logistics &middot; Supply chain management</p>
               <ul class="timeline__bullets">
-                <li>Managed full product roadmap across 3 teams (25 people), aligning all initiatives with OKRs</li>
-                <li>Led creation of AI agents &amp; automation flows &mdash; <strong>10% reduction in operational costs</strong></li>
-                <li>Iterated 10+ product enhancements in 3 months, significantly increasing driver customer engagement</li>
-                <li>Developed advanced data models focused on revenue optimization and company profitability</li>
+                <li data-i18n="bt.b1">Manage 3 cross-functional teams (25+ people) across Engineering and Data, translating complex business needs into high-velocity development cycles</li>
+                <li data-i18n-html="bt.b2">Leading strategy and deployment of AI agents and automation flows &mdash; <strong>10% reduction in operational costs</strong></li>
+                <li data-i18n-html="bt.b3">Integrated predictive alert features using AI to identify delivery delays early, achieving a <strong>98% on-time rate</strong></li>
+                <li data-i18n="bt.b4">Iterated 10+ product enhancements within 90 days, significantly increasing driver engagement</li>
               </ul>
               <div class="timeline__tech" aria-label="Technologies used">
                 <span>JIRA</span><span>Confluence</span><span>Figma</span><span>SQL</span><span>Tableau</span><span>Scrum</span><span>A/B Testing</span><span>RICE</span>
@@ -260,15 +272,15 @@
                     <span class="timeline__client">Arrive Logistics, Austin TX</span>
                   </p>
                 </div>
-                <span class="timeline__period">Nov 2021 &ndash; Nov 2024</span>
+                <span class="timeline__period">Nov 2021 &ndash; Oct 2024</span>
               </div>
-              <p class="timeline__industry">Logistics &amp; supply chain &middot; Web &amp; mobile app development</p>
+              <p class="timeline__industry" data-i18n-html="al.industry">Logistics &amp; supply chain &middot; Web &amp; mobile app development</p>
               <ul class="timeline__bullets">
-                <li>Delivered the company's first mobile app MVP, enabling faster feedback loops and rapid iteration</li>
-                <li>Increased profit per load by <strong>3%</strong> via real-time data features and a new commission program</li>
-                <li>Launched 5 new features reducing costs by <strong>over 5%</strong> and simplifying load creation for users</li>
-                <li>New data modeling process cut load processing time by <strong>2 minutes per load</strong></li>
-                <li>Led 2 teams (15 people: frontend, backend, QA, designers) reporting to group product manager</li>
+                <li data-i18n="al.b1">Managed roadmap for web and mobile apps focused on workflow optimization and real-time tracking for 3K+ users</li>
+                <li data-i18n-html="al.b2">Increased profit by <strong>3% per load (over $20K USD/day)</strong> by launching a new data-driven commission program</li>
+                <li data-i18n="al.b3">Developed the first mobile app MVP, significantly accelerating the feedback loop for core logistics features</li>
+                <li data-i18n-html="al.b4">Launched 5+ features reducing operational costs by <strong>5%</strong> and simplifying the load creation process</li>
+                <li data-i18n="al.b5">Integrated predictive data features providing real-time pricing insights to improve broker negotiations</li>
               </ul>
               <div class="timeline__tech" aria-label="Technologies used">
                 <span>JIRA</span><span>Figma</span><span>Miro</span><span>SQL</span><span>Power BI</span><span>Pendo</span><span>Scrum</span><span>Kanban</span>
@@ -276,51 +288,72 @@
             </div>
           </article>
 
-          <!-- IntexusLa -->
+          <!-- Veriddica / Intexus -->
           <article class="timeline__item fade-in">
             <div class="timeline__marker" aria-hidden="true"></div>
             <div class="timeline__content">
               <div class="timeline__header">
                 <div class="timeline__title-group">
-                  <h3 class="timeline__role">Head of Product</h3>
-                  <p class="timeline__company">IntexusLa</p>
+                  <h3 class="timeline__role">Product Manager</h3>
+                  <p class="timeline__company">Veriddica / Intexus</p>
                 </div>
                 <span class="timeline__period">Aug 2018 &ndash; Nov 2021</span>
               </div>
-              <p class="timeline__industry">FinTech &amp; Digital Identity &middot; Latin American market</p>
+              <p class="timeline__industry" data-i18n-html="vi.industry">FinTech &middot; Secure ID &amp; Digital Card Solutions &middot; Colombia</p>
               <ul class="timeline__bullets">
-                <li>Founded the product area from scratch; built the company's first agile methodology (Scrum)</li>
-                <li>Launched <strong>Vecard</strong> (ID mobile app) &mdash; <strong>$150K revenue in year one</strong></li>
-                <li>Launched <strong>CaaS</strong> (Card-as-a-Service) &mdash; 8+ domestic clients, 3 international clients</li>
-                <li>Built company's first Power BI dashboard to support data-driven strategic decisions</li>
-                <li>Managed 2 Product Owners directly; reported to CEO</li>
+                <li data-i18n="vi.b1">Led the company's first digital product (Vecard) from concept to scaling, defining the entire product department's structure ("0 to 1")</li>
+                <li data-i18n-html="vi.b2">Launched <strong>Vecard</strong> &mdash; <strong>$150K USD revenue in the first year</strong></li>
+                <li data-i18n-html="vi.b3">Developed <strong>Card as a Service (CaaS)</strong> &mdash; <strong>11 clients onboarded, $150K USD/month</strong></li>
+                <li data-i18n="vi.b4">Created the company's first Data Team and built Power BI dashboards to drive a data-driven culture</li>
               </ul>
               <div class="timeline__tech" aria-label="Technologies used">
-                <span>JIRA</span><span>Asana</span><span>Trello</span><span>Figma</span><span>SQL</span><span>Power BI</span><span>Google Analytics</span><span>Scrum</span>
+                <span>JIRA</span><span>Asana</span><span>Figma</span><span>SQL</span><span>Power BI</span><span>Google Analytics</span><span>Scrum</span>
               </div>
             </div>
           </article>
 
-          <!-- Brinks Product Lead -->
+          <!-- Brinks Product Manager -->
           <article class="timeline__item fade-in">
             <div class="timeline__marker" aria-hidden="true"></div>
             <div class="timeline__content">
               <div class="timeline__header">
                 <div class="timeline__title-group">
-                  <h3 class="timeline__role">Product Lead</h3>
-                  <p class="timeline__company">Brinks <span class="timeline__tenure">&mdash; 6 years</span></p>
+                  <h3 class="timeline__role">Product Manager</h3>
+                  <p class="timeline__company">Brinks Colombia</p>
                 </div>
                 <span class="timeline__period">Jan 2015 &ndash; Aug 2018</span>
               </div>
-              <p class="timeline__industry">Security &amp; cash management &middot; Automation products</p>
+              <p class="timeline__industry" data-i18n-html="bp.industry">Security &amp; Cash Management &middot; Automation Products</p>
               <ul class="timeline__bullets">
-                <li>Led <strong>Compusafe</strong> (smart safe SaaS) &mdash; 500+ units sold, <strong>$120K/month revenue</strong></li>
-                <li>Developed <strong>Cash Drop</strong> platform with real-time bank connectivity (Bancolombia)</li>
-                <li>Created first daily credit model moving <strong>COP 500M+ per day</strong></li>
-                <li>Cross-functional collaboration across marketing, operations, cash management, and truck operations</li>
+                <li data-i18n-html="bp.b1">Led development of <strong>Compusafe</strong> (smart safe SaaS), integrating software and hardware for real-time cash management &mdash; <strong>500+ units sold</strong></li>
+                <li data-i18n-html="bp.b2">Created a daily credit model with Bancolombia, facilitating <strong>COP 500M+ per day</strong></li>
+                <li data-i18n="bp.b3">Established strategic partnerships across retail and manufacturing sectors</li>
               </ul>
               <div class="timeline__tech" aria-label="Technologies used">
-                <span>Trello</span><span>JIRA</span><span>SQL</span><span>Excel</span><span>Scrum</span>
+                <span>JIRA</span><span>SQL</span><span>Excel</span><span>Scrum</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Brinks Analyst -->
+          <article class="timeline__item fade-in">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <div class="timeline__title-group">
+                  <h3 class="timeline__role" data-i18n="ba.role">Marketing, Operational &amp; Financial Analyst</h3>
+                  <p class="timeline__company">Brinks Colombia</p>
+                </div>
+                <span class="timeline__period">Jan 2012 &ndash; Jan 2015</span>
+              </div>
+              <p class="timeline__industry" data-i18n-html="ba.industry">Security &amp; Cash Management &middot; Operations</p>
+              <ul class="timeline__bullets">
+                <li data-i18n-html="ba.b1">Developed and led a Lean Program from ideation to implementation &mdash; <strong>7% reduction in core operating costs</strong></li>
+                <li data-i18n="ba.b2">Created profitability models at product, customer, and city levels to drive data-backed business decisions</li>
+                <li data-i18n-html="ba.b3">Optimized cash flow analysis, identifying a <strong>15% increase in revenue opportunities</strong></li>
+              </ul>
+              <div class="timeline__tech" aria-label="Technologies used">
+                <span>SQL</span><span>Excel</span><span>Power BI</span><span>Lean</span>
               </div>
             </div>
           </article>
@@ -335,17 +368,17 @@
     <section class="case-studies section" id="case-studies" aria-label="Case studies">
       <div class="container">
         <div class="section__header fade-in">
-          <span class="section__label">Case Studies</span>
-          <h2 class="section__title">Products I've Built &amp; Scaled</h2>
+          <span class="section__label" data-i18n="cs.label">Case Studies</span>
+          <h2 class="section__title" data-i18n="cs.title">Products I've Built &amp; Scaled</h2>
         </div>
 
         <div class="cases__grid">
 
           <!-- Better Trucks -->
           <article class="case-card case-card--featured fade-in">
-            <span class="case-card__tag">Logistics &middot; AI</span>
-            <h3 class="case-card__title">Better Trucks — AI-Powered Operations</h3>
-            <p class="case-card__desc">
+            <span class="case-card__tag" data-i18n="cs.bt.tag">Logistics &middot; AI</span>
+            <h3 class="case-card__title" data-i18n="cs.bt.title">Better Trucks — AI-Powered Operations</h3>
+            <p class="case-card__desc" data-i18n="cs.bt.desc">
               Led the integration of AI agents and automation flows across last-mile logistics operations,
               eliminating manual processes and reducing operational overhead. Aligned full product strategy with
               core company OKRs.
@@ -353,82 +386,82 @@
             <div class="case-card__metrics">
               <div class="case-metric">
                 <strong>10%</strong>
-                <span>Cost Reduction</span>
+                <span data-i18n="cs.bt.m1">Cost Reduction</span>
               </div>
               <div class="case-metric">
-                <strong>10+</strong>
-                <span>Iterations / 3 months</span>
+                <strong>98%</strong>
+                <span data-i18n="cs.bt.m2">On-Time Rate</span>
               </div>
               <div class="case-metric">
-                <strong>25</strong>
-                <span>People Led</span>
+                <strong>25+</strong>
+                <span data-i18n="cs.bt.m3">People Led</span>
               </div>
             </div>
             <div class="case-card__footer">
-              <span class="case-card__industry">Last-Mile Logistics</span>
+              <span class="case-card__industry" data-i18n="cs.bt.industry">Last-Mile Logistics</span>
             </div>
           </article>
 
           <!-- Arrive Logistics -->
           <article class="case-card fade-in">
-            <span class="case-card__tag">Logistics &middot; Mobile</span>
-            <h3 class="case-card__title">Arrive Logistics — Load Workflow Optimization</h3>
-            <p class="case-card__desc">
+            <span class="case-card__tag" data-i18n="cs.al.tag">Logistics &middot; Mobile</span>
+            <h3 class="case-card__title" data-i18n="cs.al.title">Arrive Logistics — Load Workflow Optimization</h3>
+            <p class="case-card__desc" data-i18n="cs.al.desc">
               Designed and shipped the company's first mobile MVP plus 5 web features that streamlined load
               creation, improved broker commission incentives, and surfaced real-time market rate data.
             </p>
             <div class="case-card__metrics">
               <div class="case-metric">
                 <strong>+3%</strong>
-                <span>Profit per Load</span>
+                <span data-i18n="cs.al.m1">Profit per Load</span>
               </div>
               <div class="case-metric">
                 <strong>&minus;5%</strong>
-                <span>Cost Reduction</span>
+                <span data-i18n="cs.al.m2">Cost Reduction</span>
               </div>
               <div class="case-metric">
                 <strong>&minus;2 min</strong>
-                <span>Load Processing Time</span>
+                <span data-i18n="cs.al.m3">Load Processing Time</span>
               </div>
             </div>
             <div class="case-card__footer">
-              <span class="case-card__industry">Supply Chain &middot; Austin, TX</span>
+              <span class="case-card__industry" data-i18n="cs.al.industry">Supply Chain &middot; Austin, TX</span>
             </div>
           </article>
 
           <!-- Vecard & CaaS -->
           <article class="case-card fade-in">
-            <span class="case-card__tag">FinTech &middot; 0&#8594;1</span>
-            <h3 class="case-card__title">Vecard &amp; CaaS — Building FinTech from Zero</h3>
-            <p class="case-card__desc">
-              Founded the product area at IntexusLa and brought two digital products to market: Vecard (mobile
+            <span class="case-card__tag" data-i18n="cs.vc.tag">FinTech &middot; 0&#8594;1</span>
+            <h3 class="case-card__title" data-i18n="cs.vc.title">Vecard &amp; CaaS — Building FinTech from Zero</h3>
+            <p class="case-card__desc" data-i18n="cs.vc.desc">
+              Founded the product area at Veriddica/Intexus and brought two digital products to market: Vecard (mobile
               ID app) and CaaS — a Card-as-a-Service platform enabling instant debit and credit card issuance
               for the Latin American market.
             </p>
             <div class="case-card__metrics">
               <div class="case-metric">
                 <strong>$150K</strong>
-                <span>Revenue Year One</span>
+                <span data-i18n="cs.vc.m1">Revenue Year One</span>
               </div>
               <div class="case-metric">
-                <strong>8+</strong>
-                <span>Domestic Clients</span>
+                <strong>11</strong>
+                <span data-i18n="cs.vc.m2">Clients Onboarded</span>
               </div>
               <div class="case-metric">
-                <strong>3</strong>
-                <span>International Clients</span>
+                <strong>$150K</strong>
+                <span data-i18n="cs.vc.m3">MRR (CaaS)</span>
               </div>
             </div>
             <div class="case-card__footer">
-              <span class="case-card__industry">FinTech &middot; Latin America</span>
+              <span class="case-card__industry" data-i18n="cs.vc.industry">FinTech &middot; Latin America</span>
             </div>
           </article>
 
           <!-- Compusafe -->
           <article class="case-card fade-in">
-            <span class="case-card__tag">Hardware &middot; SaaS</span>
-            <h3 class="case-card__title">Compusafe — Smart Cash Management SaaS</h3>
-            <p class="case-card__desc">
+            <span class="case-card__tag" data-i18n="cs.cp.tag">Hardware &middot; SaaS</span>
+            <h3 class="case-card__title" data-i18n="cs.cp.title">Compusafe — Smart Cash Management SaaS</h3>
+            <p class="case-card__desc" data-i18n="cs.cp.desc">
               Led development and go-to-market for Compusafe, a smart safe with real-time cash monitoring
               deployed as SaaS, and Cash Drop — integrating with Bancolombia for daily credit settlement
               across gas stations, retailers, and manufacturing facilities.
@@ -436,19 +469,19 @@
             <div class="case-card__metrics">
               <div class="case-metric">
                 <strong>500+</strong>
-                <span>Units Sold</span>
+                <span data-i18n="cs.cp.m1">Units Sold</span>
               </div>
               <div class="case-metric">
                 <strong>$120K</strong>
-                <span>Monthly Revenue</span>
+                <span data-i18n="cs.cp.m2">Monthly Revenue</span>
               </div>
               <div class="case-metric">
                 <strong>COP 500M+</strong>
-                <span>Moved Daily</span>
+                <span data-i18n="cs.cp.m3">Moved Daily</span>
               </div>
             </div>
             <div class="case-card__footer">
-              <span class="case-card__industry">Cash Management &middot; Security</span>
+              <span class="case-card__industry" data-i18n="cs.cp.industry">Cash Management &middot; Security</span>
             </div>
           </article>
 
@@ -462,83 +495,83 @@
     <section class="skills section" id="skills" aria-label="Skills and tech stack">
       <div class="container">
         <div class="section__header fade-in">
-          <span class="section__label">Toolkit</span>
-          <h2 class="section__title">Skills &amp; Tech Stack</h2>
+          <span class="section__label" data-i18n="sk.label">Toolkit</span>
+          <h2 class="section__title" data-i18n="sk.title">Skills &amp; Tech Stack</h2>
         </div>
 
         <div class="skills__grid">
           <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Product Strategy</h3>
+            <h3 class="skill-group__title" data-i18n="sk.g1">AI &amp; Automation</h3>
             <div class="skill-tags">
-              <span>Product Roadmapping</span>
-              <span>PRD Writing</span>
+              <span>AI Agent Development</span>
+              <span>LLM Implementation</span>
+              <span>Prompt Engineering</span>
+              <span>Claude &amp; Gemini</span>
+              <span>LangChain / LangGraph</span>
+              <span>ADK</span>
+              <span>N8N</span>
+              <span>Low-code / No-code Workflows</span>
+            </div>
+          </div>
+
+          <div class="skill-group fade-in">
+            <h3 class="skill-group__title" data-i18n="sk.g2">Product Management</h3>
+            <div class="skill-tags">
+              <span>Roadmap Planning</span>
+              <span>PRD &amp; Feature Specs</span>
               <span>Product Discovery</span>
               <span>OKRs &amp; KPIs</span>
-              <span>A/B Testing</span>
+              <span>RICE Prioritization</span>
+              <span>ROI Analysis</span>
               <span>MVPs &amp; POCs</span>
-              <span>Go-to-Market</span>
               <span>Stakeholder Management</span>
             </div>
           </div>
 
           <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Methodologies</h3>
+            <h3 class="skill-group__title" data-i18n="sk.g3">Discovery &amp; Design</h3>
             <div class="skill-tags">
-              <span>Scrum</span>
-              <span>Kanban</span>
-              <span>Design Thinking</span>
-              <span>RICE Framework</span>
-              <span>Agile</span>
-              <span>Sprint Planning</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Tools &amp; Platforms</h3>
-            <div class="skill-tags">
-              <span>JIRA</span>
-              <span>Confluence</span>
               <span>Figma</span>
               <span>Miro</span>
-              <span>Pendo</span>
-              <span>Slack</span>
-              <span>Asana</span>
-              <span>Trello</span>
+              <span>UX/UI Principles</span>
+              <span>Rapid Prototyping</span>
+              <span>User Research</span>
+              <span>A/B Testing</span>
             </div>
           </div>
 
           <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Data &amp; Analytics</h3>
+            <h3 class="skill-group__title" data-i18n="sk.g4">Data &amp; Analytics</h3>
             <div class="skill-tags">
               <span>SQL</span>
               <span>Power BI</span>
               <span>Tableau</span>
               <span>Google Analytics</span>
-              <span>Data Modeling</span>
-              <span>Excel</span>
+              <span>Pendo</span>
+              <span>Revenue &amp; Financial Modeling</span>
             </div>
           </div>
 
           <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Industries</h3>
+            <h3 class="skill-group__title" data-i18n="sk.g5">Operations &amp; Collaboration</h3>
             <div class="skill-tags">
-              <span>Logistics &amp; Supply Chain</span>
-              <span>FinTech</span>
-              <span>Cash Management</span>
-              <span>AI &amp; Automation</span>
-              <span>Mobile Apps</span>
-              <span>SaaS</span>
+              <span>JIRA (Advanced/Admin)</span>
+              <span>Confluence</span>
+              <span>Slack</span>
+              <span>Asana</span>
+              <span>Microsoft Teams</span>
             </div>
           </div>
 
           <div class="skill-group fade-in">
-            <h3 class="skill-group__title">Leadership</h3>
+            <h3 class="skill-group__title" data-i18n="sk.g6">Methodologies</h3>
             <div class="skill-tags">
-              <span>Cross-functional Teams</span>
-              <span>Dev Team Leadership</span>
-              <span>Executive Communication</span>
-              <span>Financial Modeling</span>
-              <span>Market Research</span>
+              <span>Scrum</span>
+              <span>Kanban</span>
+              <span>Design Thinking</span>
+              <span>Lean Startup</span>
+              <span>Continuous Discovery</span>
+              <span>OKR Framework</span>
             </div>
           </div>
         </div>
@@ -551,45 +584,57 @@
     <section class="education section" id="education" aria-label="Education and certifications">
       <div class="container">
         <div class="section__header fade-in">
-          <span class="section__label">Education</span>
-          <h2 class="section__title">Academic &amp; Continuous Learning</h2>
+          <span class="section__label" data-i18n="edu.label">Education</span>
+          <h2 class="section__title" data-i18n="edu.title">Academic &amp; Continuous Learning</h2>
         </div>
 
         <div class="education__grid">
           <article class="edu-card edu-card--primary fade-in">
             <p class="edu-card__year">2015 &ndash; 2017</p>
-            <h3 class="edu-card__degree">MBA &mdash; Finance</h3>
+            <h3 class="edu-card__degree" data-i18n="edu.mba">MBA &mdash; Finance</h3>
             <p class="edu-card__school">Tecnol&oacute;gico de Monterrey</p>
           </article>
 
           <article class="edu-card edu-card--primary fade-in">
             <p class="edu-card__year">2009 &ndash; 2013</p>
-            <h3 class="edu-card__degree">B.S. Business Administration</h3>
+            <h3 class="edu-card__degree" data-i18n="edu.bs">B.S. Business Administration</h3>
             <p class="edu-card__school">Universidad Nacional de Colombia<br><small>Marketing &amp; Finance</small></p>
+          </article>
+
+          <article class="edu-card edu-card--cert fade-in">
+            <p class="edu-card__year">2025</p>
+            <h3 class="edu-card__degree">Agentic AI with LangChain &amp; LangGraph</h3>
+            <p class="edu-card__school" data-i18n="edu.cert">Professional Certification</p>
+          </article>
+
+          <article class="edu-card edu-card--cert fade-in">
+            <p class="edu-card__year">2025</p>
+            <h3 class="edu-card__degree">Build Intelligent Agents with DeepSeek &amp; N8N</h3>
+            <p class="edu-card__school" data-i18n="edu.cert">Professional Certification</p>
+          </article>
+
+          <article class="edu-card edu-card--cert fade-in">
+            <p class="edu-card__year">2025</p>
+            <h3 class="edu-card__degree">Build Intelligent Agents with ADK</h3>
+            <p class="edu-card__school" data-i18n="edu.cert">Professional Certification</p>
           </article>
 
           <article class="edu-card fade-in">
             <p class="edu-card__year">2023</p>
-            <h3 class="edu-card__degree">Data Analytics</h3>
+            <h3 class="edu-card__degree" data-i18n="edu.analytics">Data Analytics &amp; Data Processing</h3>
             <p class="edu-card__school">Coderhouse</p>
           </article>
 
           <article class="edu-card fade-in">
             <p class="edu-card__year">2021</p>
-            <h3 class="edu-card__degree">Product Management</h3>
+            <h3 class="edu-card__degree" data-i18n="edu.pm">Product Management</h3>
             <p class="edu-card__school">Coderhouse</p>
           </article>
 
           <article class="edu-card fade-in">
             <p class="edu-card__year">2021</p>
-            <h3 class="edu-card__degree">Scrum Methodology</h3>
+            <h3 class="edu-card__degree" data-i18n="edu.scrum">Scrum Methodology</h3>
             <p class="edu-card__school">Crehana</p>
-          </article>
-
-          <article class="edu-card edu-card--cert fade-in">
-            <p class="edu-card__year">Certification</p>
-            <h3 class="edu-card__degree">AI for Product Management</h3>
-            <p class="edu-card__school">Professional Certification</p>
           </article>
         </div>
       </div>
@@ -601,9 +646,9 @@
     <section class="contact section" id="contact" aria-label="Contact">
       <div class="container">
         <div class="contact__inner fade-in">
-          <span class="section__label">Let's Connect</span>
-          <h2 class="contact__title">Open to Senior PM Roles in the US</h2>
-          <p class="contact__subtitle">
+          <span class="section__label" data-i18n="con.label">Let's Connect</span>
+          <h2 class="contact__title" data-i18n="con.title">Open to Senior PM Roles in the US</h2>
+          <p class="contact__subtitle" data-i18n="con.sub">
             Looking for opportunities to drive product strategy at a fast-growing company.
             Let's talk about how I can contribute to your team.
           </p>
@@ -616,12 +661,12 @@
 
             <a href="https://www.linkedin.com/in/luis-carlos-benavides-fiallo" target="_blank" rel="noopener noreferrer" class="contact__link contact__link--secondary">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn Profile
+              <span data-i18n="con.linkedin">LinkedIn Profile</span>
             </a>
 
-            <a href="Profile.pdf" download="Luis_Benavides_PM_Resume.pdf" class="contact__link contact__link--ghost">
+            <a href="assets/CV Luis benavides AI PM 2026.pdf" download="Luis_Benavides_AI_PM_2026.pdf" class="contact__link contact__link--ghost">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              Download Resume
+              <span data-i18n="con.download">Download Resume</span>
             </a>
           </div>
         </div>
@@ -636,7 +681,7 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__copy">&copy; 2026 Luis Carlos Benavides Fiallo &middot; Senior Product Manager</p>
-      <p class="footer__sub">Built with purpose. Designed to perform.</p>
+      <p class="footer__sub" data-i18n="ft.sub">Built with purpose. Designed to perform.</p>
     </div>
   </footer>
 
