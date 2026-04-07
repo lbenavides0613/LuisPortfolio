@@ -546,9 +546,9 @@ const galleryData = {
   'better-trucks': {
     name: 'Better Trucks',
     photos: [
-      'assets/Better Trucks/BetterTrucks1.jpeg',
-      'assets/Better Trucks/BetterTrucks2.jpeg',
-      'assets/Better Trucks/BetterTrucks3.jpeg',
+      'assets/Better%20Trucks/BetterTrucks1.jpeg',
+      'assets/Better%20Trucks/BetterTrucks2.jpeg',
+      'assets/Better%20Trucks/BetterTrucks3.jpeg',
     ]
   },
   'arrive-logistics': {
@@ -570,9 +570,9 @@ const galleryData = {
   'brinks': {
     name: 'Brinks Colombia',
     photos: [
-      'assets/Brinks/Brinks 1.jpeg',
-      'assets/Brinks/Brinks 2.jpeg',
-      'assets/Brinks/Brinks 3.jpeg',
+      'assets/Brinks/Brinks%201.jpeg',
+      'assets/Brinks/Brinks%202.jpeg',
+      'assets/Brinks/Brinks%203.jpeg',
     ]
   }
 };
