@@ -348,6 +348,9 @@ const translations = {
 
     // Footer
     'ft.sub': 'Built with purpose. Designed to perform.',
+
+    // Gallery
+    'gallery.view': 'View Photos',
   },
 
   es: {
@@ -492,6 +495,9 @@ const translations = {
 
     // Footer
     'ft.sub': 'Construido con propósito. Diseñado para destacar.',
+
+    // Gallery
+    'gallery.view': 'Ver Fotos',
   }
 };
 
@@ -534,6 +540,190 @@ langToggle.addEventListener('click', () => {
 applyTranslations(currentLang);
 
 /* ============================================================
-   11. Init
+   11. Photo Gallery Modal
+   ============================================================ */
+const galleryData = {
+  'better-trucks': {
+    name: 'Better Trucks',
+    photos: [
+      'assets/Better Trucks/BetterTrucks1.jpeg',
+      'assets/Better Trucks/BetterTrucks2.jpeg',
+      'assets/Better Trucks/BetterTrucks3.jpeg',
+    ]
+  },
+  'arrive-logistics': {
+    name: 'Arrive Logistics',
+    photos: [
+      'assets/ArriveLogistics/Arrive1.jpeg',
+      'assets/ArriveLogistics/Arrive2.jpeg',
+      'assets/ArriveLogistics/Arrive3.jpeg',
+    ]
+  },
+  'veriddica': {
+    name: 'Veriddica / Intexus',
+    photos: [
+      'assets/Veriddica-Intexus/Vecard1.jpeg',
+      'assets/Veriddica-Intexus/Vecard2.jpeg',
+      'assets/Veriddica-Intexus/caas1.jpeg',
+    ]
+  },
+  'brinks': {
+    name: 'Brinks Colombia',
+    photos: [
+      'assets/Brinks/Brinks 1.jpeg',
+      'assets/Brinks/Brinks 2.jpeg',
+      'assets/Brinks/Brinks 3.jpeg',
+    ]
+  }
+};
+
+const galleryModal = document.getElementById('galleryModal');
+const modalTitle   = document.getElementById('modalTitle');
+const modalPhoto   = document.getElementById('modalPhoto');
+const modalPrev    = document.getElementById('modalPrev');
+const modalNext    = document.getElementById('modalNext');
+const modalClose   = document.getElementById('modalClose');
+const modalDots    = document.getElementById('modalDots');
+const modalCounter = document.getElementById('modalCounter');
+const modalThumbs  = document.getElementById('modalThumbs');
+
+let activeGallery = null;
+let activeIndex   = 0;
+
+function openGallery(key) {
+  const data = galleryData[key];
+  if (!data) return;
+
+  activeGallery = data;
+  activeIndex   = 0;
+
+  modalTitle.textContent = data.name;
+
+  // Build thumbnails
+  modalThumbs.innerHTML = data.photos
+    .map((src, i) =>
+      `<img class="modal__thumb${i === 0 ? ' active' : ''}" src="${src}" alt="Photo ${i + 1}" data-index="${i}" loading="lazy">`
+    ).join('');
+
+  // Build dot indicators
+  modalDots.innerHTML = data.photos
+    .map((_, i) =>
+      `<button class="modal__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}" role="tab"></button>`
+    ).join('');
+
+  showPhoto(0, true);
+  galleryModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Focus close button for accessibility
+  requestAnimationFrame(() => modalClose.focus());
+}
+
+function showPhoto(index, instant) {
+  if (!activeGallery) return;
+  const total = activeGallery.photos.length;
+  activeIndex  = Math.max(0, Math.min(index, total - 1));
+
+  if (!instant) {
+    modalPhoto.classList.add('fading');
+  }
+
+  const load = () => {
+    modalPhoto.src = activeGallery.photos[activeIndex];
+    modalPhoto.alt = `${activeGallery.name} — photo ${activeIndex + 1}`;
+    modalPhoto.classList.remove('fading');
+  };
+
+  if (instant) {
+    load();
+  } else {
+    // Short delay so fade-out is visible before src change
+    setTimeout(load, 140);
+  }
+
+  modalCounter.textContent = `${activeIndex + 1} / ${total}`;
+
+  modalDots.querySelectorAll('.modal__dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
+  });
+
+  modalThumbs.querySelectorAll('.modal__thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === activeIndex);
+    if (i === activeIndex) {
+      thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  });
+
+  modalPrev.disabled = activeIndex === 0;
+  modalNext.disabled = activeIndex === total - 1;
+}
+
+function closeGallery() {
+  galleryModal.classList.remove('open');
+  document.body.style.overflow = '';
+  activeGallery = null;
+}
+
+// Close on X button or backdrop click
+modalClose.addEventListener('click', closeGallery);
+galleryModal.addEventListener('click', e => {
+  if (e.target === galleryModal) closeGallery();
+});
+
+// Navigation buttons
+modalPrev.addEventListener('click', () => showPhoto(activeIndex - 1));
+modalNext.addEventListener('click', () => showPhoto(activeIndex + 1));
+
+// Dots and thumbnails
+modalDots.addEventListener('click', e => {
+  const dot = e.target.closest('.modal__dot');
+  if (dot) showPhoto(parseInt(dot.dataset.index, 10));
+});
+
+modalThumbs.addEventListener('click', e => {
+  const thumb = e.target.closest('.modal__thumb');
+  if (thumb) showPhoto(parseInt(thumb.dataset.index, 10));
+});
+
+// Keyboard: Esc, ←, →
+document.addEventListener('keydown', e => {
+  if (!galleryModal.classList.contains('open')) return;
+  if (e.key === 'Escape')     { closeGallery(); return; }
+  if (e.key === 'ArrowLeft')  { showPhoto(activeIndex - 1); return; }
+  if (e.key === 'ArrowRight') { showPhoto(activeIndex + 1); }
+});
+
+// Touch swipe support
+let touchStartX = 0;
+galleryModal.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].clientX;
+}, { passive: true });
+galleryModal.addEventListener('touchend', e => {
+  const delta = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(delta) < 40) return;
+  if (delta < 0) showPhoto(activeIndex + 1);
+  else           showPhoto(activeIndex - 1);
+}, { passive: true });
+
+// Open gallery — delegated click handler for cards and timeline buttons
+document.addEventListener('click', e => {
+  // Case card (click anywhere on card)
+  const card = e.target.closest('.case-card[data-gallery]');
+  if (card) { openGallery(card.dataset.gallery); return; }
+
+  // Timeline "View Photos" button
+  const btn = e.target.closest('.timeline__gallery-btn[data-gallery]');
+  if (btn)  { openGallery(btn.dataset.gallery); }
+});
+
+// Keyboard enter/space on case cards (accessibility)
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const card = e.target.closest('.case-card[data-gallery]');
+  if (card) { e.preventDefault(); openGallery(card.dataset.gallery); }
+});
+
+/* ============================================================
+   12. Init
    ============================================================ */
 handleNavScroll();

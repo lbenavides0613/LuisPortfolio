@@ -1515,3 +1515,367 @@ body.dark .about__photo {
   border-color: var(--clr-accent);
   box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.1), var(--shadow-lg);
 }
+
+/* ============================================================
+   23. Case Card Gallery Hint & Clickable Cards
+   ============================================================ */
+.case-card[data-gallery] {
+  cursor: pointer;
+}
+
+.case-card[data-gallery] .case-card__footer {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.case-card__gallery-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--clr-primary);
+  opacity: 0.6;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+  white-space: nowrap;
+}
+
+.case-card[data-gallery]:hover .case-card__gallery-hint {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Featured dark card hint uses accent color */
+.case-card--featured .case-card__gallery-hint {
+  color: var(--clr-accent);
+}
+
+/* ============================================================
+   24. Timeline Gallery Button
+   ============================================================ */
+.timeline__gallery-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1.125rem;
+  padding: 7px 16px;
+  border: 1.5px solid var(--clr-primary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--clr-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast);
+  font-family: var(--font-sans);
+}
+
+.timeline__gallery-btn:hover {
+  background: var(--clr-primary);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+body.dark .timeline__gallery-btn {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+body.dark .timeline__gallery-btn:hover {
+  background: var(--clr-accent);
+  color: #0b1628;
+}
+
+/* ============================================================
+   25. Photo Gallery Modal
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(5, 14, 28, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--clr-white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 880px;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  transform: scale(0.94) translateY(18px);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1) translateY(0);
+}
+
+/* Header */
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  flex-shrink: 0;
+}
+
+.modal__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  letter-spacing: -0.3px;
+}
+
+.modal__close {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  color: var(--clr-muted);
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+
+.modal__close:hover {
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  border-color: var(--clr-muted);
+}
+
+/* Stage — main photo area */
+.modal__stage {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: #050e1c;
+  flex: 1;
+  min-height: 0;
+}
+
+.modal__photo-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 300px;
+  max-height: 52vh;
+}
+
+.modal__photo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.18s ease;
+  user-select: none;
+}
+
+.modal__photo.fading {
+  opacity: 0;
+}
+
+/* Navigation arrows */
+.modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  z-index: 2;
+  transition: background var(--t-fast), transform var(--t-fast);
+  backdrop-filter: blur(4px);
+}
+
+.modal__nav:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.modal__nav:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.modal__nav--prev { left: 12px; }
+.modal__nav--next { right: 12px; }
+
+/* Footer — dots + counter */
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--clr-border);
+  flex-shrink: 0;
+}
+
+.modal__dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.modal__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+
+.modal__dot.active {
+  background: var(--clr-primary);
+  transform: scale(1.35);
+}
+
+.modal__dot:hover:not(.active) {
+  background: var(--clr-muted);
+}
+
+.modal__counter {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thumbnails strip */
+.modal__thumbs {
+  display: flex;
+  gap: 8px;
+  padding: 0.75rem 1.5rem 1.125rem;
+  overflow-x: auto;
+  flex-shrink: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-border) transparent;
+}
+
+.modal__thumb {
+  width: 80px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.6;
+  flex-shrink: 0;
+  transition: border-color var(--t-fast), opacity var(--t-fast), transform var(--t-fast);
+}
+
+.modal__thumb:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.modal__thumb.active {
+  border-color: var(--clr-primary);
+  opacity: 1;
+}
+
+/* Dark mode modal */
+body.dark .modal {
+  background: #0d1b2e;
+}
+
+body.dark .modal__header {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+body.dark .modal__title {
+  color: #e2e8f0;
+}
+
+body.dark .modal__close {
+  border-color: rgba(255,255,255,0.1);
+  color: #94a3b8;
+}
+
+body.dark .modal__close:hover {
+  background: rgba(255,255,255,0.05);
+  color: #e2e8f0;
+  border-color: rgba(255,255,255,0.2);
+}
+
+body.dark .modal__footer {
+  border-top-color: rgba(255,255,255,0.08);
+}
+
+body.dark .modal__dot {
+  background: rgba(255,255,255,0.15);
+}
+
+body.dark .modal__dot.active {
+  background: var(--clr-accent);
+}
+
+body.dark .modal__counter {
+  color: #8b9cc4;
+}
+
+body.dark .modal__thumb.active {
+  border-color: var(--clr-accent);
+}
+
+/* Mobile modal */
+@media (max-width: 768px) {
+  .modal__photo-wrap {
+    min-height: 220px;
+    max-height: 42vh;
+  }
+
+  .modal__thumb {
+    width: 60px;
+    height: 42px;
+  }
+
+  .modal__nav {
+    width: 34px;
+    height: 34px;
+  }
+
+  .modal__nav--prev { left: 8px; }
+  .modal__nav--next { right: 8px; }
+
+  .case-card__gallery-hint {
+    font-size: 0.68rem;
+  }
+}
