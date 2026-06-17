@@ -395,83 +395,26 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
   background: var(--clr-white);
 }
 
-.education__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
+.education__grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 .edu-card {
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--clr-border);
-  background: var(--clr-light);
-  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 1.5rem; transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+}
+.edu-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.edu-card__year { font-size: 0.78rem; color: var(--text-2); margin-bottom: 0.5rem; }
+.edu-card__degree { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.25; }
+.edu-card__school { font-size: 0.9rem; color: var(--text-2); line-height: 1.4; }
+.edu-card__school small { color: var(--text-2); }
+.edu-card--primary { border-color: color-mix(in srgb, var(--clr-primary) 35%, var(--border)); }
+.edu-card--cert { position: relative; }
+.edu-card--cert::before {
+  content: "AI"; position: absolute; top: 1rem; right: 1rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; color: #fff;
+  background: var(--ai-grad); padding: 0.15rem 0.5rem; border-radius: 980px;
 }
 
-.edu-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--clr-primary);
-}
-
-.edu-card--primary {
-  background: var(--clr-dark);
-  border-color: transparent;
-  color: var(--clr-white);
-}
-
-.edu-card--primary:hover {
-  border-color: var(--clr-accent);
-}
-
-.edu-card--primary .edu-card__year {
-  color: var(--clr-accent);
-}
-
-.edu-card--primary .edu-card__degree {
-  color: var(--clr-white);
-}
-
-.edu-card--primary .edu-card__school {
-  color: rgba(255,255,255,0.45);
-}
-
-.edu-card--primary small {
-  color: rgba(255,255,255,0.3);
-}
-
-.edu-card--cert {
-  border-style: dashed;
-  background: rgba(37, 99, 235, 0.03);
-}
-
-.edu-card--cert .edu-card__year {
-  color: var(--clr-accent);
-}
-
-.edu-card__year {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--clr-primary);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.edu-card__degree {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--clr-dark);
-  margin-bottom: 5px;
-  line-height: 1.35;
-}
-
-.edu-card__school {
-  font-size: 0.8125rem;
-  color: var(--clr-muted);
-  line-height: 1.5;
-}
+@media (min-width: 640px) { .education__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .education__grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* ============================================================
    15. Contact Section
@@ -592,10 +535,6 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
     --section-pad: 4rem;
   }
 
-  .education__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
 }
 
 
@@ -605,10 +544,6 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
 @media (max-width: 768px) {
   :root {
     --section-pad: 3rem;
-  }
-
-  .education__grid {
-    grid-template-columns: 1fr;
   }
 
 }
@@ -662,16 +597,6 @@ body.dark .highlight-item__title {
 }
 
 /* Education */
-body.dark .edu-card {
-  background: #0f1f3d;
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark .edu-card--cert {
-  background: rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.2);
-}
-
 body.dark .edu-card__degree {
   color: #e2e8f0;
 }
