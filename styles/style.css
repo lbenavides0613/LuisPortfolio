@@ -419,113 +419,31 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
 /* ============================================================
    15. Contact Section
    ============================================================ */
-.contact {
-  background: var(--clr-dark);
-  padding-block: 7rem;
-}
-
-.contact .section__label {
-  color: var(--clr-accent);
-}
-
-.contact__inner {
-  max-width: 660px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.contact__title {
-  font-size: clamp(1.875rem, 4vw, 2.875rem);
-  font-weight: 900;
-  color: var(--clr-white);
-  letter-spacing: -1px;
-  line-height: 1.15;
-  margin-block: 14px 18px;
-}
-
-.contact__subtitle {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.75;
-  margin-bottom: 3rem;
-}
-
-.contact__links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
+.contact { background: var(--clr-dark); color: #fff; }
+.contact__inner { text-align: center; max-width: 720px; margin-inline: auto; }
+.contact .section__label { color: var(--clr-accent); }
+.contact__title { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 600; margin-bottom: 1rem; }
+.contact__subtitle { font-size: clamp(1rem, 2.2vw, 1.25rem); color: rgba(255,255,255,0.65); line-height: 1.55; margin-bottom: 2.5rem; }
+.contact__links { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; }
 .contact__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 15px 28px;
-  border-radius: var(--radius-md);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  min-width: 300px;
-  transition: all var(--t-base);
-  border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.85rem 1.5rem; border-radius: 980px; font-weight: 500;
+  transition: transform 0.3s var(--ease-apple), background 0.3s var(--ease-apple);
 }
-
-.contact__link--primary {
-  background: var(--clr-primary);
-  color: var(--clr-white);
-  box-shadow: var(--shadow-primary);
-}
-
-.contact__link--primary:hover {
-  background: var(--clr-primary-h);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(37, 99, 235, 0.4);
-}
-
-.contact__link--secondary {
-  background: rgba(255,255,255,0.07);
-  color: var(--clr-white);
-  border-color: rgba(255,255,255,0.12);
-}
-
-.contact__link--secondary:hover {
-  background: rgba(255,255,255,0.13);
-  border-color: rgba(255,255,255,0.25);
-  transform: translateY(-2px);
-}
-
-.contact__link--ghost {
-  background: transparent;
-  color: rgba(255,255,255,0.4);
-  border-color: rgba(255,255,255,0.08);
-}
-
-.contact__link--ghost:hover {
-  color: var(--clr-white);
-  border-color: rgba(255,255,255,0.25);
-  transform: translateY(-2px);
-}
+.contact__link:hover { transform: scale(1.04); }
+.contact__link--primary { background: var(--clr-primary); color: #fff; }
+.contact__link--secondary { background: rgba(255,255,255,0.1); color: #fff; }
+.contact__link--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
+.contact__link--secondary:hover { background: rgba(255,255,255,0.18); }
+.contact__link--ghost:hover { background: rgba(255,255,255,0.08); }
 
 /* ============================================================
    16. Footer
    ============================================================ */
-.footer {
-  background: #050e1c;
-  padding-block: 2rem;
-  text-align: center;
-}
-
-.footer__copy {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.2);
-}
-
-.footer__sub {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.1);
-  margin-top: 4px;
-}
+.footer { background: var(--clr-dark); color: rgba(255,255,255,0.5); padding-block: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer .container { text-align: center; }
+.footer__copy { font-size: 0.85rem; margin-bottom: 0.3rem; }
+.footer__sub { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
 
 /* ============================================================
    17. Responsive — Tablet (max 1024px)
@@ -555,11 +473,6 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
   .btn {
     width: 100%;
     justify-content: center;
-  }
-
-  .contact__link {
-    min-width: unset;
-    width: 100%;
   }
 
   .timeline__content {
