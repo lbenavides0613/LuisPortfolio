@@ -382,6 +382,23 @@ const translations = {
 
     // Gallery
     'gallery.view': 'View Photos',
+
+    // AI-Driven PM
+    'ai.label':     'AI-Driven PM',
+    'ai.title':     'Building products with AI at the core',
+    'ai.statement': 'I embed AI across every stage of the product cycle — from discovery to operational automation — to decide faster and scale with fewer resources.',
+    'ai.c1.t': 'LLMs & Assistants',
+    'ai.c1.d': 'ChatGPT, Claude and Gemini woven into research, drafting and decision support.',
+    'ai.c2.t': 'AI-Assisted Building',
+    'ai.c2.d': 'GitHub Copilot and Cursor to prototype, spec and ship faster alongside engineering.',
+    'ai.c3.t': 'Prompt Engineering',
+    'ai.c3.d': 'Designing prompts and multi-step flows that turn models into reliable product tooling.',
+    'ai.c4.t': 'Automation & Agents',
+    'ai.c4.d': 'No-code agents and automations (Zapier/Make, N8N) that remove manual operational work.',
+    'ai.c5.t': 'AI Data & Analytics',
+    'ai.c5.d': 'AI-assisted analysis and dashboards that shorten the path from data to decision.',
+    'ai.c6.t': 'AI Product Discovery',
+    'ai.c6.d': 'AI-assisted research and synthesis to find the right problems before building.',
   },
 
   es: {
@@ -529,6 +546,23 @@ const translations = {
 
     // Gallery
     'gallery.view': 'Ver Fotos',
+
+    // AI-Driven PM
+    'ai.label':     'PM con IA',
+    'ai.title':     'Construyo productos con la IA en el centro',
+    'ai.statement': 'Integro IA en cada etapa del ciclo de producto — desde el discovery hasta la automatización operativa — para decidir más rápido y escalar con menos recursos.',
+    'ai.c1.t': 'LLMs y Asistentes',
+    'ai.c1.d': 'ChatGPT, Claude y Gemini integrados en research, redacción y toma de decisiones.',
+    'ai.c2.t': 'Construcción Asistida por IA',
+    'ai.c2.d': 'GitHub Copilot y Cursor para prototipar, especificar y entregar más rápido junto a ingeniería.',
+    'ai.c3.t': 'Prompt Engineering',
+    'ai.c3.d': 'Diseño de prompts y flujos multi-paso que convierten los modelos en herramientas de producto fiables.',
+    'ai.c4.t': 'Automatización y Agentes',
+    'ai.c4.d': 'Agentes y automatizaciones no-code (Zapier/Make, N8N) que eliminan trabajo operativo manual.',
+    'ai.c5.t': 'Datos y Analítica con IA',
+    'ai.c5.d': 'Análisis y dashboards asistidos por IA que acortan el camino del dato a la decisión.',
+    'ai.c6.t': 'Discovery de Producto con IA',
+    'ai.c6.d': 'Investigación y síntesis asistidas por IA para encontrar los problemas correctos antes de construir.',
   }
 };
 
