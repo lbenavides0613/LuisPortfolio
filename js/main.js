@@ -646,9 +646,7 @@ const galleryData = {
 
 const galleryModal = document.getElementById('galleryModal');
 const modalTitle   = document.getElementById('modalTitle');
-const modalPhoto   = document.getElementById('modalPhoto');
-const modalPrev    = document.getElementById('modalPrev');
-const modalNext    = document.getElementById('modalNext');
+const modalTrack   = document.getElementById('galleryTrack');
 const modalClose   = document.getElementById('modalClose');
 const modalDots    = document.getElementById('modalDots');
 const modalCounter = document.getElementById('modalCounter');
@@ -660,70 +658,58 @@ let activeIndex   = 0;
 function openGallery(key) {
   const data = galleryData[key];
   if (!data) return;
-
   activeGallery = data;
-  activeIndex   = 0;
-
+  activeIndex = 0;
   modalTitle.textContent = data.name;
 
-  // Build thumbnails
+  modalTrack.innerHTML = data.photos
+    .map((src, i) => `<div class="modal__slide"><img src="${src}" alt="${data.name} — photo ${i + 1}" loading="lazy"></div>`)
+    .join('');
+
   modalThumbs.innerHTML = data.photos
-    .map((src, i) =>
-      `<img class="modal__thumb${i === 0 ? ' active' : ''}" src="${src}" alt="Photo ${i + 1}" data-index="${i}" loading="lazy">`
-    ).join('');
+    .map((src, i) => `<img class="modal__thumb${i === 0 ? ' active' : ''}" src="${src}" alt="Photo ${i + 1}" data-index="${i}" loading="lazy">`)
+    .join('');
 
-  // Build dot indicators
   modalDots.innerHTML = data.photos
-    .map((_, i) =>
-      `<button class="modal__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}" role="tab"></button>`
-    ).join('');
+    .map((_, i) => `<button class="modal__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}" role="tab"></button>`)
+    .join('');
 
-  showPhoto(0, true);
+  syncIndicators(0);
   galleryModal.classList.add('open');
   document.body.style.overflow = 'hidden';
-
-  // Focus close button for accessibility
   requestAnimationFrame(() => modalClose.focus());
 }
 
-function showPhoto(index, instant) {
+function showPhoto(index) {
   if (!activeGallery) return;
   const total = activeGallery.photos.length;
-  activeIndex  = Math.max(0, Math.min(index, total - 1));
-
-  if (!instant) {
-    modalPhoto.classList.add('fading');
-  }
-
-  const load = () => {
-    modalPhoto.src = activeGallery.photos[activeIndex];
-    modalPhoto.alt = `${activeGallery.name} — photo ${activeIndex + 1}`;
-    modalPhoto.classList.remove('fading');
-  };
-
-  if (instant) {
-    load();
-  } else {
-    // Short delay so fade-out is visible before src change
-    setTimeout(load, 140);
-  }
-
-  modalCounter.textContent = `${activeIndex + 1} / ${total}`;
-
-  modalDots.querySelectorAll('.modal__dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === activeIndex);
-  });
-
-  modalThumbs.querySelectorAll('.modal__thumb').forEach((thumb, i) => {
-    thumb.classList.toggle('active', i === activeIndex);
-    if (i === activeIndex) {
-      thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  });
-
-  modalPrev.disabled = activeIndex === 0;
-  modalNext.disabled = activeIndex === total - 1;
+  const i = Math.max(0, Math.min(index, total - 1));
+  const slide = modalTrack.children[i];
+  if (slide) modalTrack.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
 }
+
+function syncIndicators(i) {
+  if (!activeGallery) return;
+  activeIndex = i;
+  const total = activeGallery.photos.length;
+  modalCounter.textContent = `${i + 1} / ${total}`;
+  modalDots.querySelectorAll('.modal__dot').forEach((d, di) => d.classList.toggle('active', di === i));
+  modalThumbs.querySelectorAll('.modal__thumb').forEach((t, ti) => {
+    t.classList.toggle('active', ti === i);
+    if (ti === i) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  });
+}
+
+let trackTick = false;
+modalTrack.addEventListener('scroll', () => {
+  if (trackTick) return;
+  trackTick = true;
+  requestAnimationFrame(() => {
+    trackTick = false;
+    const i = Math.round(modalTrack.scrollLeft / modalTrack.clientWidth);
+    if (i !== activeIndex) syncIndicators(i);
+  });
+}, { passive: true });
 
 function closeGallery() {
   galleryModal.classList.remove('open');
@@ -736,10 +722,6 @@ modalClose.addEventListener('click', closeGallery);
 galleryModal.addEventListener('click', e => {
   if (e.target === galleryModal) closeGallery();
 });
-
-// Navigation buttons
-modalPrev.addEventListener('click', () => showPhoto(activeIndex - 1));
-modalNext.addEventListener('click', () => showPhoto(activeIndex + 1));
 
 // Dots and thumbnails
 modalDots.addEventListener('click', e => {

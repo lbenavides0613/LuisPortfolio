@@ -780,73 +780,18 @@ body.dark .edu-card__degree {
   border-color: var(--clr-muted);
 }
 
-/* Stage — main photo area */
-.modal__stage {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  background: #050e1c;
-  flex: 1;
-  min-height: 0;
+.modal__track {
+  display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md); outline: none;
 }
-
-.modal__photo-wrap {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  min-height: 300px;
-  max-height: 52vh;
+.modal__track::-webkit-scrollbar { display: none; }
+.modal__track { scrollbar-width: none; }
+.modal__slide {
+  flex: 0 0 100%; scroll-snap-align: center;
+  display: grid; place-items: center; min-height: 0;
 }
-
-.modal__photo {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: opacity 0.18s ease;
-  user-select: none;
-}
-
-.modal__photo.fading {
-  opacity: 0;
-}
-
-/* Navigation arrows */
-.modal__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  cursor: pointer;
-  color: #fff;
-  z-index: 2;
-  transition: background var(--t-fast), transform var(--t-fast);
-  backdrop-filter: blur(4px);
-}
-
-.modal__nav:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.26);
-  transform: translateY(-50%) scale(1.08);
-}
-
-.modal__nav:disabled {
-  opacity: 0.25;
-  cursor: default;
-}
-
-.modal__nav--prev { left: 12px; }
-.modal__nav--next { right: 12px; }
+.modal__slide img { width: 100%; max-height: 70vh; object-fit: contain; border-radius: var(--radius-md); }
 
 /* Footer — dots + counter */
 .modal__footer {
@@ -970,23 +915,10 @@ body.dark .modal__thumb.active {
 
 /* Mobile modal */
 @media (max-width: 768px) {
-  .modal__photo-wrap {
-    min-height: 220px;
-    max-height: 42vh;
-  }
-
   .modal__thumb {
     width: 60px;
     height: 42px;
   }
-
-  .modal__nav {
-    width: 34px;
-    height: 34px;
-  }
-
-  .modal__nav--prev { left: 8px; }
-  .modal__nav--next { right: 8px; }
 }
 
 /* =====================
