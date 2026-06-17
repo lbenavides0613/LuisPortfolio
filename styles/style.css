@@ -280,155 +280,38 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
   background: var(--clr-light);
 }
 
-.timeline {
-  position: relative;
-  padding-left: 2.5rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 11px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--clr-primary) 0%, var(--clr-accent) 60%, transparent 100%);
-}
-
-.timeline__item {
-  position: relative;
-  margin-bottom: 2.5rem;
-}
-
-.timeline__item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline__marker {
-  position: absolute;
-  left: -2.1rem;
-  top: 0.75rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--clr-primary);
-  border: 3px solid var(--clr-light);
-  box-shadow: 0 0 0 2px var(--clr-primary);
-}
-
+.timeline { position: relative; display: flex; flex-direction: column; gap: 1.25rem; }
+.timeline__item { position: relative; }
+.timeline__marker { display: none; }
 .timeline__content {
-  background: var(--clr-white);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: 2rem 2rem 1.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--t-base), transform var(--t-base);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 2.25rem); transition: box-shadow 0.4s var(--ease-apple);
 }
-
-.timeline__content:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateX(5px);
-}
-
-.timeline__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.timeline__role {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--clr-dark);
-  margin-bottom: 3px;
-}
-
-.timeline__company {
-  font-size: 0.875rem;
-  color: var(--clr-muted);
-}
-
-.timeline__arrow {
-  color: var(--clr-border);
-  margin-inline: 4px;
-}
-
-.timeline__client {
-  color: var(--clr-primary);
-  font-weight: 600;
-}
-
-.timeline__tenure {
-  color: var(--clr-border);
-  font-weight: 400;
-}
-
-.timeline__period {
-  font-size: 0.775rem;
-  font-weight: 600;
-  color: var(--clr-muted);
-  background: var(--clr-light);
-  padding: 4px 12px;
-  border-radius: 100px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.timeline__industry {
-  font-size: 0.775rem;
-  color: var(--clr-primary);
-  font-weight: 500;
-  margin-bottom: 1rem;
-  letter-spacing: 0.2px;
-}
-
-.timeline__bullets {
-  margin-bottom: 1.25rem;
-}
-
-.timeline__bullets li {
-  position: relative;
-  padding-left: 1.25rem;
-  padding-block: 3px;
-  font-size: 0.9rem;
-  color: var(--clr-muted);
-  line-height: 1.65;
-}
-
-.timeline__bullets li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--clr-primary);
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-.timeline__bullets strong {
-  color: var(--clr-dark);
-  font-weight: 600;
-}
-
-.timeline__tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
+.timeline__content:hover { box-shadow: var(--shadow-card); }
+.timeline__header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; align-items: baseline; margin-bottom: 0.4rem; }
+.timeline__role { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 600; }
+.timeline__company { font-size: 0.98rem; color: var(--text-2); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.timeline__arrow { color: var(--clr-primary); }
+.timeline__client { color: var(--text); font-weight: 500; }
+.timeline__period { font-size: 0.82rem; color: var(--text-2); white-space: nowrap; }
+.timeline__industry { font-size: 0.86rem; color: var(--clr-primary); margin-bottom: 1rem; }
+.timeline__bullets { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+.timeline__bullets li { position: relative; padding-left: 1.25rem; font-size: 0.96rem; color: var(--text); line-height: 1.5; }
+.timeline__bullets li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--clr-primary); }
+.timeline__bullets strong { font-weight: 600; }
+.timeline__tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
 .timeline__tech span {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  background: var(--clr-light);
-  border: 1px solid var(--clr-border);
-  border-radius: 100px;
-  color: var(--clr-muted);
-  font-family: var(--font-mono);
-  letter-spacing: 0.2px;
+  font-size: 0.74rem; color: var(--text-2);
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem; border-radius: 980px;
 }
+.timeline__gallery-btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 0.82rem; color: var(--clr-primary); background: none;
+  border: 1px solid var(--border); border-radius: 980px; padding: 0.45rem 0.9rem; cursor: pointer;
+  transition: background 0.25s var(--ease-apple);
+}
+.timeline__gallery-btn:hover { background: var(--surface-2); }
 
 /* ============================================================
    12. Case Studies
@@ -849,23 +732,6 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
     grid-template-columns: 1fr;
   }
 
-  .timeline {
-    padding-left: 2rem;
-  }
-
-  .timeline::before {
-    left: 9px;
-  }
-
-  .timeline__marker {
-    left: -1.55rem;
-  }
-
-  .timeline__header {
-    flex-direction: column;
-    gap: 6px;
-  }
-
 }
 
 /* ============================================================
@@ -919,20 +785,6 @@ body.dark .about__text strong {
 
 body.dark .highlight-item__title {
   color: #e2e8f0;
-}
-
-/* Timeline */
-body.dark .timeline__role {
-  color: #e2e8f0;
-}
-
-body.dark .timeline__bullets strong {
-  color: #e2e8f0;
-}
-
-body.dark .timeline__content {
-  background: #0f1f3d;
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Case cards */
@@ -1001,42 +853,6 @@ body.dark .edu-card__degree {
 /* Featured dark card hint uses accent color */
 .case-card--featured .case-card__gallery-hint {
   color: var(--clr-accent);
-}
-
-/* ============================================================
-   24. Timeline Gallery Button
-   ============================================================ */
-.timeline__gallery-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 1.125rem;
-  padding: 7px 16px;
-  border: 1.5px solid var(--clr-primary);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--clr-primary);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast);
-  font-family: var(--font-sans);
-}
-
-.timeline__gallery-btn:hover {
-  background: var(--clr-primary);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-body.dark .timeline__gallery-btn {
-  border-color: var(--clr-accent);
-  color: var(--clr-accent);
-}
-
-body.dark .timeline__gallery-btn:hover {
-  background: var(--clr-accent);
-  color: #0b1628;
 }
 
 /* ============================================================
