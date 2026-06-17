@@ -26,6 +26,7 @@
       </button>
 
       <ul class="nav__menu" id="navMenu" role="list">
+        <li><a href="#ai" class="nav__link" data-i18n="nav.ai">AI Expertise</a></li>
         <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
         <li><a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
         <li><a href="#case-studies" class="nav__link" data-i18n="nav.case-studies">Case Studies</a></li>
@@ -49,64 +50,110 @@
     <!-- =====================
          Hero Section
     ===================== -->
-    <section class="hero" id="hero" aria-label="Introduction">
-      <div class="hero__container">
+    <section class="hero" id="hero" aria-label="Introduction" data-sticky>
+  <div class="container hero__inner">
+    <span class="hero__eyebrow" data-i18n="hero.title">Senior Product Manager</span>
+    <h1 class="hero__name">Luis Carlos<br>Benavides Fiallo</h1>
+    <p class="hero__tagline" data-i18n-html="hero.tagline">
+      10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech.
+      Expert in "0 to 1" product development and scaling through
+      <strong>AI-driven automation</strong>.
+    </p>
+    <div class="hero__actions">
+      <a href="#ai" class="btn btn--primary" data-i18n="hero.cta1">Explore AI Work</a>
+      <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Get In Touch</a>
+    </div>
 
-        <div class="hero__content">
-          <span class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            <span data-i18n="hero.badge">Open to US Opportunities</span>
-          </span>
-          <h1 class="hero__name">Luis Carlos<br>Benavides Fiallo</h1>
-          <p class="hero__title" data-i18n="hero.title">Senior Product Manager</p>
-          <p class="hero__tagline" data-i18n-html="hero.tagline">
-            10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech.
-            Expert in "0 to 1" product development and scaling through
-            <strong>AI-driven automation</strong>.
-          </p>
-          <div class="hero__actions">
-            <a href="#case-studies" class="btn btn--primary" data-i18n="hero.cta1">View Case Studies</a>
-            <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Get In Touch</a>
-          </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero__card-grid">
-            <div class="metric-card">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="10">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.years">Years Experience</p>
-            </div>
-            <div class="metric-card metric-card--accent">
-              <div class="metric-card__value">
-                <span class="metric-card__prefix">$</span><span class="metric-card__number" data-target="10">0</span><span class="metric-card__unit">M+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.revenue">Revenue Generated</p>
-            </div>
-            <div class="metric-card metric-card--teal">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="25">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.people">People Led</p>
-            </div>
-            <div class="metric-card metric-card--dark">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="500">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.units">Units Launched</p>
-            </div>
-          </div>
-        </div>
-
+    <div class="hero__metrics">
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="10">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.years">Years Experience</span>
       </div>
+      <div class="hero__metric">
+        <span class="hero__metric-value">$<span data-target="10">0</span>M+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.revenue">Revenue Generated</span>
+      </div>
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="25">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.people">People Led</span>
+      </div>
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="500">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.units">Units Launched</span>
+      </div>
+    </div>
+  </div>
 
-      <div class="hero__scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="hero__scroll-line"></div>
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+    <!-- =====================
+         AI-Driven PM Section
+    ===================== -->
+    <section class="ai section" id="ai" aria-label="AI expertise">
+      <div class="container ai__inner" data-sticky>
+        <div class="section__header fade-in">
+          <span class="section__label ai__label" data-i18n="ai.label">AI-Driven PM</span>
+          <h2 class="section__title" data-i18n="ai.title">Building products with AI at the core</h2>
+        </div>
+
+        <p class="ai__statement fade-in" data-i18n="ai.statement">
+          I embed AI across every stage of the product cycle — from discovery to operational
+          automation — to decide faster and scale with fewer resources.
+        </p>
+
+        <div class="ai__grid">
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V7a4 4 0 0 0-4-4z"/><path d="M12 3v18"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c1.t">LLMs &amp; Assistants</h3>
+            <p class="ai-card__desc" data-i18n="ai.c1.d">ChatGPT, Claude and Gemini woven into research, drafting and decision support.</p>
+          </article>
+
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c2.t">AI-Assisted Building</h3>
+            <p class="ai-card__desc" data-i18n="ai.c2.d">GitHub Copilot and Cursor to prototype, spec and ship faster alongside engineering.</p>
+          </article>
+
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M4 12h10v8H4z"/><path d="M18 12h2v8h-2z"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c3.t">Prompt Engineering</h3>
+            <p class="ai-card__desc" data-i18n="ai.c3.d">Designing prompts and multi-step flows that turn models into reliable product tooling.</p>
+          </article>
+
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c4.t">Automation &amp; Agents</h3>
+            <p class="ai-card__desc" data-i18n="ai.c4.d">No-code agents and automations (Zapier/Make, N8N) that remove manual operational work.</p>
+          </article>
+
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c5.t">AI Data &amp; Analytics</h3>
+            <p class="ai-card__desc" data-i18n="ai.c5.d">AI-assisted analysis and dashboards that shorten the path from data to decision.</p>
+          </article>
+
+          <article class="ai-card fade-in">
+            <div class="ai-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3 class="ai-card__title" data-i18n="ai.c6.t">AI Product Discovery</h3>
+            <p class="ai-card__desc" data-i18n="ai.c6.d">AI-assisted research and synthesis to find the right problems before building.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -398,6 +445,7 @@
           <!-- Better Trucks -->
           <article class="case-card case-card--featured fade-in" data-gallery="better-trucks" role="button" tabindex="0" aria-label="Better Trucks — click to view photos">
             <span class="case-card__tag" data-i18n="cs.bt.tag">Logistics &middot; AI</span>
+            <span class="case-card__ai-badge" data-i18n="cs.ai.badge">AI</span>
             <h3 class="case-card__title" data-i18n="cs.bt.title">Better Trucks — AI-Powered Operations</h3>
             <p class="case-card__desc" data-i18n="cs.bt.desc">
               Led the integration of AI agents and automation flows across last-mile logistics operations,
@@ -536,82 +584,7 @@
           <h2 class="section__title" data-i18n="sk.title">Skills &amp; Tech Stack</h2>
         </div>
 
-        <div class="skills__grid">
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g1">AI &amp; Automation</h3>
-            <div class="skill-tags">
-              <span>AI Agent Development</span>
-              <span>LLM Implementation</span>
-              <span>Prompt Engineering</span>
-              <span>Claude &amp; Gemini</span>
-              <span>LangChain / LangGraph</span>
-              <span>ADK</span>
-              <span>N8N</span>
-              <span>Low-code / No-code Workflows</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g2">Product Management</h3>
-            <div class="skill-tags">
-              <span>Roadmap Planning</span>
-              <span>PRD &amp; Feature Specs</span>
-              <span>Product Discovery</span>
-              <span>OKRs &amp; KPIs</span>
-              <span>RICE Prioritization</span>
-              <span>ROI Analysis</span>
-              <span>MVPs &amp; POCs</span>
-              <span>Stakeholder Management</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g3">Discovery &amp; Design</h3>
-            <div class="skill-tags">
-              <span>Figma</span>
-              <span>Miro</span>
-              <span>UX/UI Principles</span>
-              <span>Rapid Prototyping</span>
-              <span>User Research</span>
-              <span>A/B Testing</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g4">Data &amp; Analytics</h3>
-            <div class="skill-tags">
-              <span>SQL</span>
-              <span>Power BI</span>
-              <span>Tableau</span>
-              <span>Google Analytics</span>
-              <span>Pendo</span>
-              <span>Revenue &amp; Financial Modeling</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g5">Operations &amp; Collaboration</h3>
-            <div class="skill-tags">
-              <span>JIRA (Advanced/Admin)</span>
-              <span>Confluence</span>
-              <span>Slack</span>
-              <span>Asana</span>
-              <span>Microsoft Teams</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__title" data-i18n="sk.g6">Methodologies</h3>
-            <div class="skill-tags">
-              <span>Scrum</span>
-              <span>Kanban</span>
-              <span>Design Thinking</span>
-              <span>Lean Startup</span>
-              <span>Continuous Discovery</span>
-              <span>OKR Framework</span>
-            </div>
-          </div>
-        </div>
+        <div class="skills__grid" id="skillsGrid"></div>
       </div>
     </section>
 
@@ -733,17 +706,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
-      <div class="modal__stage">
-        <button class="modal__nav modal__nav--prev" id="modalPrev" aria-label="Previous photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="modal__photo-wrap">
-          <img class="modal__photo" id="modalPhoto" src="" alt="">
-        </div>
-        <button class="modal__nav modal__nav--next" id="modalNext" aria-label="Next photo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
+      <div class="modal__track" id="galleryTrack" tabindex="0" aria-label="Photo carousel"></div>
       <div class="modal__footer">
         <div class="modal__dots" id="modalDots" role="tablist" aria-label="Photo navigation"></div>
         <span class="modal__counter" id="modalCounter" aria-live="polite"></span>

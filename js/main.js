@@ -143,6 +143,37 @@ const counterObserver = new IntersectionObserver((entries) => {
 counterEls.forEach(el => counterObserver.observe(el));
 
 /* ============================================================
+   Sticky Progress — desktop-only cinematic entrance
+   ============================================================ */
+function initStickyProgress(selector) {
+  const els = document.querySelectorAll(selector);
+  if (!els.length) return;
+
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    if (!desktop.matches) { els.forEach(el => el.style.removeProperty('--progress')); return; }
+    const vh = window.innerHeight;
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // 0 cuando el elemento entra por abajo, 1 cuando su centro alcanza el centro del viewport
+      const raw = 1 - Math.max(0, rect.top) / vh;
+      el.style.setProperty('--progress', Math.min(1, Math.max(0, raw)).toFixed(3));
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  desktop.addEventListener('change', update);
+  update();
+}
+
+initStickyProgress('[data-sticky] > .hero__inner, [data-sticky] > .container, .ai__inner[data-sticky]');
+
+/* ============================================================
    7. Smooth Scroll for Anchor Links
    ============================================================ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -208,6 +239,7 @@ if (localStorage.getItem('darkMode') === '1') {
 const translations = {
   en: {
     // Nav
+    'nav.ai':           'AI Expertise',
     'nav.about':        'About',
     'nav.experience':   'Experience',
     'nav.case-studies': 'Case Studies',
@@ -216,10 +248,9 @@ const translations = {
     'nav.contact':      'Contact',
 
     // Hero
-    'hero.badge':    'Open to US Opportunities',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  '10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech. Expert in "0 to 1" product development and scaling through <strong>AI-driven automation</strong>.',
-    'hero.cta1':     'View Case Studies',
+    'hero.cta1':     'Explore AI Work',
     'hero.cta2':     'Get In Touch',
     'hero.m.years':  'Years Experience',
     'hero.m.revenue':'Revenue Generated',
@@ -318,16 +349,17 @@ const translations = {
     'cs.cp.m2':       'Monthly Revenue',
     'cs.cp.m3':       'Moved Daily',
     'cs.cp.industry': 'Cash Management · Security',
+    'cs.ai.badge': 'AI',
 
     // Skills
     'sk.label': 'Toolkit',
     'sk.title': 'Skills & Tech Stack',
-    'sk.g1':    'AI & Automation',
-    'sk.g2':    'Product Management',
-    'sk.g3':    'Discovery & Design',
-    'sk.g4':    'Data & Analytics',
-    'sk.g5':    'Operations & Collaboration',
-    'sk.g6':    'Methodologies',
+    'sk.cat.product': 'Product Management',
+    'sk.cat.ai':      'AI & Automation',
+    'sk.cat.data':    'Data & Analytics',
+    'sk.cat.design':  'Discovery & Design',
+    'sk.cat.ops':     'Operations & Tools',
+    'sk.cat.methods': 'Methodologies',
 
     // Education
     'edu.label':     'Education',
@@ -351,10 +383,28 @@ const translations = {
 
     // Gallery
     'gallery.view': 'View Photos',
+
+    // AI-Driven PM
+    'ai.label':     'AI-Driven PM',
+    'ai.title':     'Building products with AI at the core',
+    'ai.statement': 'I embed AI across every stage of the product cycle — from discovery to operational automation — to decide faster and scale with fewer resources.',
+    'ai.c1.t': 'LLMs & Assistants',
+    'ai.c1.d': 'ChatGPT, Claude and Gemini woven into research, drafting and decision support.',
+    'ai.c2.t': 'AI-Assisted Building',
+    'ai.c2.d': 'GitHub Copilot and Cursor to prototype, spec and ship faster alongside engineering.',
+    'ai.c3.t': 'Prompt Engineering',
+    'ai.c3.d': 'Designing prompts and multi-step flows that turn models into reliable product tooling.',
+    'ai.c4.t': 'Automation & Agents',
+    'ai.c4.d': 'No-code agents and automations (Zapier/Make, N8N) that remove manual operational work.',
+    'ai.c5.t': 'AI Data & Analytics',
+    'ai.c5.d': 'AI-assisted analysis and dashboards that shorten the path from data to decision.',
+    'ai.c6.t': 'AI Product Discovery',
+    'ai.c6.d': 'AI-assisted research and synthesis to find the right problems before building.',
   },
 
   es: {
     // Nav
+    'nav.ai':           'Experiencia IA',
     'nav.about':        'Sobre Mí',
     'nav.experience':   'Experiencia',
     'nav.case-studies': 'Casos de Estudio',
@@ -363,10 +413,9 @@ const translations = {
     'nav.contact':      'Contacto',
 
     // Hero
-    'hero.badge':    'Disponible para Oportunidades en EE.UU.',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  'Más de 10 años generando <strong>+$10M en ingresos</strong> en Logística y FinTech. Experto en desarrollo de producto "0 a 1" y escalamiento a través de <strong>automatización con IA</strong>.',
-    'hero.cta1':     'Ver Casos de Estudio',
+    'hero.cta1':     'Ver trabajo con IA',
     'hero.cta2':     'Contáctame',
     'hero.m.years':  'Años de Experiencia',
     'hero.m.revenue':'Ingresos Generados',
@@ -465,16 +514,17 @@ const translations = {
     'cs.cp.m2':       'Ingresos Mensuales',
     'cs.cp.m3':       'Movidos Diariamente',
     'cs.cp.industry': 'Gestión de Efectivo · Seguridad',
+    'cs.ai.badge': 'IA',
 
     // Skills
     'sk.label': 'Herramientas',
     'sk.title': 'Habilidades y Stack Tecnológico',
-    'sk.g1':    'IA y Automatización',
-    'sk.g2':    'Gestión de Producto',
-    'sk.g3':    'Descubrimiento y Diseño',
-    'sk.g4':    'Datos y Analítica',
-    'sk.g5':    'Operaciones y Colaboración',
-    'sk.g6':    'Metodologías',
+    'sk.cat.product': 'Gestión de Producto',
+    'sk.cat.ai':      'IA y Automatización',
+    'sk.cat.data':    'Datos y Analítica',
+    'sk.cat.design':  'Discovery y Diseño',
+    'sk.cat.ops':     'Operaciones y Herramientas',
+    'sk.cat.methods': 'Metodologías',
 
     // Education
     'edu.label':     'Educación',
@@ -498,6 +548,23 @@ const translations = {
 
     // Gallery
     'gallery.view': 'Ver Fotos',
+
+    // AI-Driven PM
+    'ai.label':     'PM con IA',
+    'ai.title':     'Construyo productos con la IA en el centro',
+    'ai.statement': 'Integro IA en cada etapa del ciclo de producto — desde el discovery hasta la automatización operativa — para decidir más rápido y escalar con menos recursos.',
+    'ai.c1.t': 'LLMs y Asistentes',
+    'ai.c1.d': 'ChatGPT, Claude y Gemini integrados en research, redacción y toma de decisiones.',
+    'ai.c2.t': 'Construcción Asistida por IA',
+    'ai.c2.d': 'GitHub Copilot y Cursor para prototipar, especificar y entregar más rápido junto a ingeniería.',
+    'ai.c3.t': 'Prompt Engineering',
+    'ai.c3.d': 'Diseño de prompts y flujos multi-paso que convierten los modelos en herramientas de producto fiables.',
+    'ai.c4.t': 'Automatización y Agentes',
+    'ai.c4.d': 'Agentes y automatizaciones no-code (Zapier/Make, N8N) que eliminan trabajo operativo manual.',
+    'ai.c5.t': 'Datos y Analítica con IA',
+    'ai.c5.d': 'Análisis y dashboards asistidos por IA que acortan el camino del dato a la decisión.',
+    'ai.c6.t': 'Discovery de Producto con IA',
+    'ai.c6.d': 'Investigación y síntesis asistidas por IA para encontrar los problemas correctos antes de construir.',
   }
 };
 
@@ -540,6 +607,76 @@ langToggle.addEventListener('click', () => {
 applyTranslations(currentLang);
 
 /* ============================================================
+   Skills — data-driven interactive grid (no levels)
+   ============================================================ */
+const skillsData = [
+  {
+    id: 'product',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>',
+    skills: ['Roadmap Planning', 'PRD & Feature Specs', 'Product Discovery', 'OKRs & KPIs', 'RICE Prioritization', 'ROI Analysis', 'MVPs & POCs', 'Stakeholder Management'],
+  },
+  {
+    id: 'ai',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V7a4 4 0 0 0-4-4z"/></svg>',
+    skills: ['AI Agent Development', 'LLM Implementation', 'Prompt Engineering', 'Claude & Gemini', 'LangChain / LangGraph', 'ADK', 'N8N', 'No-code Workflows'],
+  },
+  {
+    id: 'data',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>',
+    skills: ['SQL', 'Power BI', 'Tableau', 'Google Analytics', 'Pendo', 'Financial Modeling'],
+  },
+  {
+    id: 'design',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/></svg>',
+    skills: ['Figma', 'Miro', 'UX/UI Principles', 'Rapid Prototyping', 'User Research', 'A/B Testing'],
+  },
+  {
+    id: 'ops',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/></svg>',
+    skills: ['JIRA (Admin)', 'Confluence', 'Slack', 'Asana', 'Microsoft Teams'],
+  },
+  {
+    id: 'methods',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><polyline points="21 3 21 9 15 9"/></svg>',
+    skills: ['Scrum', 'Kanban', 'Design Thinking', 'Lean Startup', 'Continuous Discovery', 'OKR Framework'],
+  },
+];
+
+function renderSkills() {
+  const grid = document.getElementById('skillsGrid');
+  if (!grid) return;
+  grid.innerHTML = skillsData.map(cat => `
+    <article class="skill-cat fade-in" data-cat>
+      <button class="skill-cat__head" aria-expanded="false">
+        <span class="skill-cat__icon" aria-hidden="true">${cat.icon}</span>
+        <span class="skill-cat__title" data-i18n="sk.cat.${cat.id}">${cat.id}</span>
+        <span class="skill-cat__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="skill-cat__panel">
+        <div class="skill-cat__tags">
+          ${cat.skills.map(s => `<span>${s}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  grid.querySelectorAll('.skill-cat__head').forEach(head => {
+    head.addEventListener('click', () => {
+      const open = head.getAttribute('aria-expanded') === 'true';
+      head.setAttribute('aria-expanded', String(!open));
+      head.closest('.skill-cat').classList.toggle('open', !open);
+    });
+  });
+
+  applyTranslations(currentLang);
+  grid.querySelectorAll('.skill-cat.fade-in').forEach(el => fadeObserver.observe(el));
+}
+
+renderSkills();
+
+/* ============================================================
    11. Photo Gallery Modal
    ============================================================ */
 const galleryData = {
@@ -579,9 +716,7 @@ const galleryData = {
 
 const galleryModal = document.getElementById('galleryModal');
 const modalTitle   = document.getElementById('modalTitle');
-const modalPhoto   = document.getElementById('modalPhoto');
-const modalPrev    = document.getElementById('modalPrev');
-const modalNext    = document.getElementById('modalNext');
+const modalTrack   = document.getElementById('galleryTrack');
 const modalClose   = document.getElementById('modalClose');
 const modalDots    = document.getElementById('modalDots');
 const modalCounter = document.getElementById('modalCounter');
@@ -593,70 +728,58 @@ let activeIndex   = 0;
 function openGallery(key) {
   const data = galleryData[key];
   if (!data) return;
-
   activeGallery = data;
-  activeIndex   = 0;
-
+  activeIndex = 0;
   modalTitle.textContent = data.name;
 
-  // Build thumbnails
+  modalTrack.innerHTML = data.photos
+    .map((src, i) => `<div class="modal__slide"><img src="${src}" alt="${data.name} — photo ${i + 1}" loading="lazy"></div>`)
+    .join('');
+
   modalThumbs.innerHTML = data.photos
-    .map((src, i) =>
-      `<img class="modal__thumb${i === 0 ? ' active' : ''}" src="${src}" alt="Photo ${i + 1}" data-index="${i}" loading="lazy">`
-    ).join('');
+    .map((src, i) => `<img class="modal__thumb${i === 0 ? ' active' : ''}" src="${src}" alt="Photo ${i + 1}" data-index="${i}" loading="lazy">`)
+    .join('');
 
-  // Build dot indicators
   modalDots.innerHTML = data.photos
-    .map((_, i) =>
-      `<button class="modal__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}" role="tab"></button>`
-    ).join('');
+    .map((_, i) => `<button class="modal__dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}" role="tab"></button>`)
+    .join('');
 
-  showPhoto(0, true);
+  syncIndicators(0);
   galleryModal.classList.add('open');
   document.body.style.overflow = 'hidden';
-
-  // Focus close button for accessibility
   requestAnimationFrame(() => modalClose.focus());
 }
 
-function showPhoto(index, instant) {
+function showPhoto(index) {
   if (!activeGallery) return;
   const total = activeGallery.photos.length;
-  activeIndex  = Math.max(0, Math.min(index, total - 1));
-
-  if (!instant) {
-    modalPhoto.classList.add('fading');
-  }
-
-  const load = () => {
-    modalPhoto.src = activeGallery.photos[activeIndex];
-    modalPhoto.alt = `${activeGallery.name} — photo ${activeIndex + 1}`;
-    modalPhoto.classList.remove('fading');
-  };
-
-  if (instant) {
-    load();
-  } else {
-    // Short delay so fade-out is visible before src change
-    setTimeout(load, 140);
-  }
-
-  modalCounter.textContent = `${activeIndex + 1} / ${total}`;
-
-  modalDots.querySelectorAll('.modal__dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === activeIndex);
-  });
-
-  modalThumbs.querySelectorAll('.modal__thumb').forEach((thumb, i) => {
-    thumb.classList.toggle('active', i === activeIndex);
-    if (i === activeIndex) {
-      thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  });
-
-  modalPrev.disabled = activeIndex === 0;
-  modalNext.disabled = activeIndex === total - 1;
+  const i = Math.max(0, Math.min(index, total - 1));
+  const slide = modalTrack.children[i];
+  if (slide) modalTrack.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
 }
+
+function syncIndicators(i) {
+  if (!activeGallery) return;
+  activeIndex = i;
+  const total = activeGallery.photos.length;
+  modalCounter.textContent = `${i + 1} / ${total}`;
+  modalDots.querySelectorAll('.modal__dot').forEach((d, di) => d.classList.toggle('active', di === i));
+  modalThumbs.querySelectorAll('.modal__thumb').forEach((t, ti) => {
+    t.classList.toggle('active', ti === i);
+    if (ti === i) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  });
+}
+
+let trackTick = false;
+modalTrack.addEventListener('scroll', () => {
+  if (trackTick) return;
+  trackTick = true;
+  requestAnimationFrame(() => {
+    trackTick = false;
+    const i = Math.round(modalTrack.scrollLeft / modalTrack.clientWidth);
+    if (i !== activeIndex) syncIndicators(i);
+  });
+}, { passive: true });
 
 function closeGallery() {
   galleryModal.classList.remove('open');
@@ -669,10 +792,6 @@ modalClose.addEventListener('click', closeGallery);
 galleryModal.addEventListener('click', e => {
   if (e.target === galleryModal) closeGallery();
 });
-
-// Navigation buttons
-modalPrev.addEventListener('click', () => showPhoto(activeIndex - 1));
-modalNext.addEventListener('click', () => showPhoto(activeIndex + 1));
 
 // Dots and thumbnails
 modalDots.addEventListener('click', e => {
@@ -693,17 +812,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { showPhoto(activeIndex + 1); }
 });
 
-// Touch swipe support
-let touchStartX = 0;
-galleryModal.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].clientX;
-}, { passive: true });
-galleryModal.addEventListener('touchend', e => {
-  const delta = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(delta) < 40) return;
-  if (delta < 0) showPhoto(activeIndex + 1);
-  else           showPhoto(activeIndex - 1);
-}, { passive: true });
+// Touch swipe is handled natively by the carousel's CSS scroll-snap track.
 
 // Open gallery — delegated click handler for cards and timeline buttons
 document.addEventListener('click', e => {

@@ -2,7 +2,35 @@
   "permissions": {
     "allow": [
       "Bash(ls:*)",
-      "Bash(node --check '/c/Users/Luis Benavides TMP/Desktop/CV Portfolio/js/main.js')"
+      "Bash(node --check '/c/Users/Luis Benavides TMP/Desktop/CV Portfolio/js/main.js')",
+      "Bash(git add *)",
+      "Bash(git commit -m 'docs: add Apple-style redesign design spec *)",
+      "Bash(git commit -m 'docs: add Apple-style redesign implementation plan *)",
+      "Bash(git rev-parse *)",
+      "Bash(cat \"$\\(git rev-parse --git-path sdd\\)/progress.md\")",
+      "Bash(ls \"C:/Users/Luis Benavides TMP/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.0/skills/subagent-driven-development/scripts/\")",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 1)",
+      "Bash(git commit -q -m 'feat\\(design\\): add Apple-style design tokens, typography, buttons and reveal foundation *)",
+      "Bash(bash __TRACKED_VAR__/scripts/review-package 96d8588 249f158)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 2)",
+      "Bash(node --check js/main.js)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 3)",
+      "Bash(git commit -q -m 'fix\\(hero\\): add position:relative for scroll-hint, drop orphaned hero.badge keys *)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 4)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 5)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 6)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 7)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 8)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 9)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 10)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 11)",
+      "Bash(bash __TRACKED_VAR__/scripts/task-brief docs/superpowers/plans/2026-06-16-apple-style-redesign.md 12)",
+      "Bash(node -e ' *)",
+      "Bash(git commit -q -m 'chore: final QA cleanup and docs for Apple-style redesign *)",
+      "Bash(bash __TRACKED_VAR__/scripts/review-package 96d8588 56b3de0)"
     ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
   }
 }
