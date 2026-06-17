@@ -208,6 +208,7 @@ if (localStorage.getItem('darkMode') === '1') {
 const translations = {
   en: {
     // Nav
+    'nav.ai':           'AI Expertise',
     'nav.about':        'About',
     'nav.experience':   'Experience',
     'nav.case-studies': 'Case Studies',
@@ -355,6 +356,7 @@ const translations = {
 
   es: {
     // Nav
+    'nav.ai':           'Experiencia IA',
     'nav.about':        'Sobre Mí',
     'nav.experience':   'Experiencia',
     'nav.case-studies': 'Casos de Estudio',
