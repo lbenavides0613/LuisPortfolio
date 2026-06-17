@@ -56,7 +56,7 @@ body.dark {
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--nav-h); }
 
 body {
   font-family: var(--font-sans);
@@ -597,7 +597,7 @@ body.dark .edu-card__degree {
 }
 
 .modal__track {
-  display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+  display: flex; gap: 0; flex: 1; min-height: 0; overflow-x: auto; scroll-snap-type: x mandatory;
   scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-md); outline: none;
 }

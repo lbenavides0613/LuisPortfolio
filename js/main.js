@@ -354,12 +354,6 @@ const translations = {
     // Skills
     'sk.label': 'Toolkit',
     'sk.title': 'Skills & Tech Stack',
-    'sk.g1':    'AI & Automation',
-    'sk.g2':    'Product Management',
-    'sk.g3':    'Discovery & Design',
-    'sk.g4':    'Data & Analytics',
-    'sk.g5':    'Operations & Collaboration',
-    'sk.g6':    'Methodologies',
     'sk.cat.product': 'Product Management',
     'sk.cat.ai':      'AI & Automation',
     'sk.cat.data':    'Data & Analytics',
@@ -525,12 +519,6 @@ const translations = {
     // Skills
     'sk.label': 'Herramientas',
     'sk.title': 'Habilidades y Stack Tecnológico',
-    'sk.g1':    'IA y Automatización',
-    'sk.g2':    'Gestión de Producto',
-    'sk.g3':    'Descubrimiento y Diseño',
-    'sk.g4':    'Datos y Analítica',
-    'sk.g5':    'Operaciones y Colaboración',
-    'sk.g6':    'Metodologías',
     'sk.cat.product': 'Gestión de Producto',
     'sk.cat.ai':      'IA y Automatización',
     'sk.cat.data':    'Datos y Analítica',
@@ -824,17 +812,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { showPhoto(activeIndex + 1); }
 });
 
-// Touch swipe support
-let touchStartX = 0;
-galleryModal.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].clientX;
-}, { passive: true });
-galleryModal.addEventListener('touchend', e => {
-  const delta = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(delta) < 40) return;
-  if (delta < 0) showPhoto(activeIndex + 1);
-  else           showPhoto(activeIndex - 1);
-}, { passive: true });
+// Touch swipe is handled natively by the carousel's CSS scroll-snap track.
 
 // Open gallery — delegated click handler for cards and timeline buttons
 document.addEventListener('click', e => {
