@@ -360,6 +360,12 @@ const translations = {
     'sk.g4':    'Data & Analytics',
     'sk.g5':    'Operations & Collaboration',
     'sk.g6':    'Methodologies',
+    'sk.cat.product': 'Product Management',
+    'sk.cat.ai':      'AI & Automation',
+    'sk.cat.data':    'Data & Analytics',
+    'sk.cat.design':  'Discovery & Design',
+    'sk.cat.ops':     'Operations & Tools',
+    'sk.cat.methods': 'Methodologies',
 
     // Education
     'edu.label':     'Education',
@@ -525,6 +531,12 @@ const translations = {
     'sk.g4':    'Datos y Analítica',
     'sk.g5':    'Operaciones y Colaboración',
     'sk.g6':    'Metodologías',
+    'sk.cat.product': 'Gestión de Producto',
+    'sk.cat.ai':      'IA y Automatización',
+    'sk.cat.data':    'Datos y Analítica',
+    'sk.cat.design':  'Discovery y Diseño',
+    'sk.cat.ops':     'Operaciones y Herramientas',
+    'sk.cat.methods': 'Metodologías',
 
     // Education
     'edu.label':     'Educación',
@@ -605,6 +617,76 @@ langToggle.addEventListener('click', () => {
 
 // Apply saved language on load
 applyTranslations(currentLang);
+
+/* ============================================================
+   Skills — data-driven interactive grid (no levels)
+   ============================================================ */
+const skillsData = [
+  {
+    id: 'product',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M9 21V9"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>',
+    skills: ['Roadmap Planning', 'PRD & Feature Specs', 'Product Discovery', 'OKRs & KPIs', 'RICE Prioritization', 'ROI Analysis', 'MVPs & POCs', 'Stakeholder Management'],
+  },
+  {
+    id: 'ai',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V7a4 4 0 0 0-4-4z"/></svg>',
+    skills: ['AI Agent Development', 'LLM Implementation', 'Prompt Engineering', 'Claude & Gemini', 'LangChain / LangGraph', 'ADK', 'N8N', 'No-code Workflows'],
+  },
+  {
+    id: 'data',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>',
+    skills: ['SQL', 'Power BI', 'Tableau', 'Google Analytics', 'Pendo', 'Financial Modeling'],
+  },
+  {
+    id: 'design',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/></svg>',
+    skills: ['Figma', 'Miro', 'UX/UI Principles', 'Rapid Prototyping', 'User Research', 'A/B Testing'],
+  },
+  {
+    id: 'ops',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/></svg>',
+    skills: ['JIRA (Admin)', 'Confluence', 'Slack', 'Asana', 'Microsoft Teams'],
+  },
+  {
+    id: 'methods',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><polyline points="21 3 21 9 15 9"/></svg>',
+    skills: ['Scrum', 'Kanban', 'Design Thinking', 'Lean Startup', 'Continuous Discovery', 'OKR Framework'],
+  },
+];
+
+function renderSkills() {
+  const grid = document.getElementById('skillsGrid');
+  if (!grid) return;
+  grid.innerHTML = skillsData.map(cat => `
+    <article class="skill-cat fade-in" data-cat>
+      <button class="skill-cat__head" aria-expanded="false">
+        <span class="skill-cat__icon" aria-hidden="true">${cat.icon}</span>
+        <span class="skill-cat__title" data-i18n="sk.cat.${cat.id}">${cat.id}</span>
+        <span class="skill-cat__chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="skill-cat__panel">
+        <div class="skill-cat__tags">
+          ${cat.skills.map(s => `<span>${s}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  grid.querySelectorAll('.skill-cat__head').forEach(head => {
+    head.addEventListener('click', () => {
+      const open = head.getAttribute('aria-expanded') === 'true';
+      head.setAttribute('aria-expanded', String(!open));
+      head.closest('.skill-cat').classList.toggle('open', !open);
+    });
+  });
+
+  applyTranslations(currentLang);
+  grid.querySelectorAll('.skill-cat.fade-in').forEach(el => fadeObserver.observe(el));
+}
+
+renderSkills();
 
 /* ============================================================
    11. Photo Gallery Modal
