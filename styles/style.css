@@ -180,6 +180,7 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
    8. Hero Section
    ============================================================ */
 .hero {
+  position: relative;
   min-height: 100vh; display: flex; align-items: center;
   padding-top: var(--nav-h);
   background:

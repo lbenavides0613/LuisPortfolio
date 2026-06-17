@@ -248,7 +248,6 @@ const translations = {
     'nav.contact':      'Contact',
 
     // Hero
-    'hero.badge':    'Open to US Opportunities',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  '10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech. Expert in "0 to 1" product development and scaling through <strong>AI-driven automation</strong>.',
     'hero.cta1':     'Explore AI Work',
@@ -396,7 +395,6 @@ const translations = {
     'nav.contact':      'Contacto',
 
     // Hero
-    'hero.badge':    'Disponible para Oportunidades en EE.UU.',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  'Más de 10 años generando <strong>+$10M en ingresos</strong> en Logística y FinTech. Experto en desarrollo de producto "0 a 1" y escalamiento a través de <strong>automatización con IA</strong>.',
     'hero.cta1':     'Ver trabajo con IA',
