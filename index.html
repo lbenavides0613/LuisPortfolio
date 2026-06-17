@@ -50,66 +50,45 @@
     <!-- =====================
          Hero Section
     ===================== -->
-    <section class="hero" id="hero" aria-label="Introduction">
-      <div class="hero__container">
+    <section class="hero" id="hero" aria-label="Introduction" data-sticky>
+  <div class="container hero__inner">
+    <span class="hero__eyebrow" data-i18n="hero.title">Senior Product Manager</span>
+    <h1 class="hero__name">Luis Carlos<br>Benavides Fiallo</h1>
+    <p class="hero__tagline" data-i18n-html="hero.tagline">
+      10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech.
+      Expert in "0 to 1" product development and scaling through
+      <strong>AI-driven automation</strong>.
+    </p>
+    <div class="hero__actions">
+      <a href="#ai" class="btn btn--primary" data-i18n="hero.cta1">Explore AI Work</a>
+      <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Get In Touch</a>
+    </div>
 
-        <div class="hero__content">
-          <span class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            <span data-i18n="hero.badge">Open to US Opportunities</span>
-          </span>
-          <h1 class="hero__name">Luis Carlos<br>Benavides Fiallo</h1>
-          <p class="hero__title" data-i18n="hero.title">Senior Product Manager</p>
-          <p class="hero__tagline" data-i18n-html="hero.tagline">
-            10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech.
-            Expert in "0 to 1" product development and scaling through
-            <strong>AI-driven automation</strong>.
-          </p>
-          <div class="hero__actions">
-            <a href="#case-studies" class="btn btn--primary" data-i18n="hero.cta1">View Case Studies</a>
-            <a href="#contact" class="btn btn--outline" data-i18n="hero.cta2">Get In Touch</a>
-          </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <div class="hero__card-grid">
-            <div class="metric-card">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="10">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.years">Years Experience</p>
-            </div>
-            <div class="metric-card metric-card--accent">
-              <div class="metric-card__value">
-                <span class="metric-card__prefix">$</span><span class="metric-card__number" data-target="10">0</span><span class="metric-card__unit">M+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.revenue">Revenue Generated</p>
-            </div>
-            <div class="metric-card metric-card--teal">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="25">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.people">People Led</p>
-            </div>
-            <div class="metric-card metric-card--dark">
-              <div class="metric-card__value">
-                <span class="metric-card__number" data-target="500">0</span>
-                <span class="metric-card__unit">+</span>
-              </div>
-              <p class="metric-card__label" data-i18n="hero.m.units">Units Launched</p>
-            </div>
-          </div>
-        </div>
-
+    <div class="hero__metrics">
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="10">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.years">Years Experience</span>
       </div>
-
-      <div class="hero__scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="hero__scroll-line"></div>
+      <div class="hero__metric">
+        <span class="hero__metric-value">$<span data-target="10">0</span>M+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.revenue">Revenue Generated</span>
       </div>
-    </section>
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="25">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.people">People Led</span>
+      </div>
+      <div class="hero__metric">
+        <span class="hero__metric-value"><span data-target="500">0</span>+</span>
+        <span class="hero__metric-label" data-i18n="hero.m.units">Units Launched</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
 
     <!-- =====================
          Impact Metrics Bar

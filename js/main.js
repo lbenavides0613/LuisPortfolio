@@ -143,6 +143,37 @@ const counterObserver = new IntersectionObserver((entries) => {
 counterEls.forEach(el => counterObserver.observe(el));
 
 /* ============================================================
+   Sticky Progress — desktop-only cinematic entrance
+   ============================================================ */
+function initStickyProgress(selector) {
+  const els = document.querySelectorAll(selector);
+  if (!els.length) return;
+
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    if (!desktop.matches) { els.forEach(el => el.style.removeProperty('--progress')); return; }
+    const vh = window.innerHeight;
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // 0 cuando el elemento entra por abajo, 1 cuando su centro alcanza el centro del viewport
+      const raw = 1 - Math.max(0, rect.top) / vh;
+      el.style.setProperty('--progress', Math.min(1, Math.max(0, raw)).toFixed(3));
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  desktop.addEventListener('change', update);
+  update();
+}
+
+initStickyProgress('[data-sticky] > .hero__inner, [data-sticky] > .container, .ai__inner[data-sticky]');
+
+/* ============================================================
    7. Smooth Scroll for Anchor Links
    ============================================================ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -220,7 +251,7 @@ const translations = {
     'hero.badge':    'Open to US Opportunities',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  '10+ years generating <strong>$10M+ in revenue</strong> across Logistics and FinTech. Expert in "0 to 1" product development and scaling through <strong>AI-driven automation</strong>.',
-    'hero.cta1':     'View Case Studies',
+    'hero.cta1':     'Explore AI Work',
     'hero.cta2':     'Get In Touch',
     'hero.m.years':  'Years Experience',
     'hero.m.revenue':'Revenue Generated',
@@ -368,7 +399,7 @@ const translations = {
     'hero.badge':    'Disponible para Oportunidades en EE.UU.',
     'hero.title':    'Senior Product Manager',
     'hero.tagline':  'Más de 10 años generando <strong>+$10M en ingresos</strong> en Logística y FinTech. Experto en desarrollo de producto "0 a 1" y escalamiento a través de <strong>automatización con IA</strong>.',
-    'hero.cta1':     'Ver Casos de Estudio',
+    'hero.cta1':     'Ver trabajo con IA',
     'hero.cta2':     'Contáctame',
     'hero.m.years':  'Años de Experiencia',
     'hero.m.revenue':'Ingresos Generados',
