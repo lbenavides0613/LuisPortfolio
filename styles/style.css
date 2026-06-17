@@ -277,7 +277,7 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
    11. Experience / Timeline
    ============================================================ */
 .experience {
-  background: var(--clr-light);
+  background: var(--surface-2);
 }
 
 .timeline { position: relative; display: flex; flex-direction: column; gap: 1.25rem; }
@@ -317,7 +317,7 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
    12. Case Studies
    ============================================================ */
 .case-studies {
-  background: var(--clr-white);
+  background: var(--bg);
 }
 
 .cases__grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
@@ -353,7 +353,7 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
    13. Skills Section
    ============================================================ */
 .skills {
-  background: var(--clr-light);
+  background: var(--surface-2);
 }
 
 .skills__grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
@@ -392,7 +392,7 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
    14. Education Section
    ============================================================ */
 .education {
-  background: var(--clr-white);
+  background: var(--bg);
 }
 
 .education__grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
@@ -484,36 +484,8 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
 /* ============================================================
    22. Dark Mode
    ============================================================ */
-body.dark {
-  --clr-white:   #0d1b2e;
-  --clr-light:   #0b1628;
-  --clr-light-2: #0f1f3d;
-  --clr-text:    #cbd5e1;
-  --clr-muted:   #8b9cc4;
-  --clr-border:  rgba(255, 255, 255, 0.08);
-  --shadow-sm:   0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
-  --shadow-md:   0 4px 20px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
-}
-
-/* Section titles */
-body.dark .section__title {
-  color: #e2e8f0;
-}
-
-/* About */
-body.dark .about__text strong {
-  color: #e2e8f0;
-}
-
-body.dark .highlight-item__title {
-  color: #e2e8f0;
-}
-
-/* Education */
-body.dark .edu-card__degree {
-  color: #e2e8f0;
-}
-
+/* Dark mode is driven entirely by the token overrides in `body.dark` (Section 1).
+   Section backgrounds, text and modal all resolve through --bg/--surface/--text/--border. */
 
 
 /* ============================================================
@@ -541,8 +513,8 @@ body.dark .edu-card__degree {
 }
 
 .modal {
-  background: var(--clr-white);
-  border-radius: var(--radius-xl);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 880px;
   max-height: 92vh;
@@ -564,14 +536,14 @@ body.dark .edu-card__degree {
   align-items: center;
   justify-content: space-between;
   padding: 1.125rem 1.5rem;
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
 
 .modal__title {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: var(--clr-dark);
+  color: var(--text);
   letter-spacing: -0.3px;
 }
 
@@ -581,19 +553,19 @@ body.dark .edu-card__degree {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--clr-border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: none;
   cursor: pointer;
-  color: var(--clr-muted);
-  transition: all var(--t-fast);
+  color: var(--text-2);
+  transition: all 0.18s var(--ease-apple);
   flex-shrink: 0;
 }
 
 .modal__close:hover {
-  background: var(--clr-light);
-  color: var(--clr-dark);
-  border-color: var(--clr-muted);
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: var(--text-2);
 }
 
 .modal__track {
@@ -615,7 +587,7 @@ body.dark .edu-card__degree {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  border-top: 1px solid var(--clr-border);
+  border-top: 1px solid var(--border);
   flex-shrink: 0;
 }
 
@@ -629,11 +601,11 @@ body.dark .edu-card__degree {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--clr-border);
+  background: var(--border);
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background var(--t-fast), transform var(--t-fast);
+  transition: background 0.18s var(--ease-apple), transform 0.18s var(--ease-apple);
 }
 
 .modal__dot.active {
@@ -642,13 +614,13 @@ body.dark .edu-card__degree {
 }
 
 .modal__dot:hover:not(.active) {
-  background: var(--clr-muted);
+  background: var(--text-2);
 }
 
 .modal__counter {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--clr-muted);
+  color: var(--text-2);
   font-variant-numeric: tabular-nums;
 }
 
@@ -660,7 +632,7 @@ body.dark .edu-card__degree {
   overflow-x: auto;
   flex-shrink: 0;
   scrollbar-width: thin;
-  scrollbar-color: var(--clr-border) transparent;
+  scrollbar-color: var(--border) transparent;
 }
 
 .modal__thumb {
@@ -672,7 +644,7 @@ body.dark .edu-card__degree {
   border: 2px solid transparent;
   opacity: 0.6;
   flex-shrink: 0;
-  transition: border-color var(--t-fast), opacity var(--t-fast), transform var(--t-fast);
+  transition: border-color 0.18s var(--ease-apple), opacity 0.18s var(--ease-apple), transform 0.18s var(--ease-apple);
 }
 
 .modal__thumb:hover {
@@ -685,49 +657,7 @@ body.dark .edu-card__degree {
   opacity: 1;
 }
 
-/* Dark mode modal */
-body.dark .modal {
-  background: #0d1b2e;
-}
-
-body.dark .modal__header {
-  border-bottom-color: rgba(255,255,255,0.08);
-}
-
-body.dark .modal__title {
-  color: #e2e8f0;
-}
-
-body.dark .modal__close {
-  border-color: rgba(255,255,255,0.1);
-  color: #94a3b8;
-}
-
-body.dark .modal__close:hover {
-  background: rgba(255,255,255,0.05);
-  color: #e2e8f0;
-  border-color: rgba(255,255,255,0.2);
-}
-
-body.dark .modal__footer {
-  border-top-color: rgba(255,255,255,0.08);
-}
-
-body.dark .modal__dot {
-  background: rgba(255,255,255,0.15);
-}
-
-body.dark .modal__dot.active {
-  background: var(--clr-accent);
-}
-
-body.dark .modal__counter {
-  color: #8b9cc4;
-}
-
-body.dark .modal__thumb.active {
-  border-color: var(--clr-accent);
-}
+/* Dark-mode modal is handled by the global tokens (--surface/--border/--text/--text-2). */
 
 /* Mobile modal */
 @media (max-width: 768px) {
