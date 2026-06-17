@@ -227,70 +227,20 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
 /* ============================================================
    9. Impact Metrics Bar
    ============================================================ */
-.metrics-bar {
-  background: var(--clr-dark);
-  padding-block: 3.5rem;
-}
-
+.metrics-bar { background: var(--clr-dark); color: #fff; padding-block: clamp(3rem, 7vw, 5rem); }
 .metrics-bar__container {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
+  max-width: var(--container-max); margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; align-items: start;
 }
+.metrics-bar__divider { display: none; }
+.metrics-bar__item { text-align: center; }
+.metrics-bar__value { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.metrics-bar__value strong { font-weight: 700; }
+.metrics-bar__prefix { color: var(--clr-accent); }
+.metrics-bar__label { margin-top: 0.6rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
 
-.metrics-bar__item {
-  text-align: center;
-  padding: 0.75rem 2.5rem;
-  flex: 1;
-  min-width: 120px;
-}
-
-.metrics-bar__value {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 2px;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.metrics-bar__prefix {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--clr-accent);
-}
-
-.metrics-bar__value strong {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--clr-accent);
-  letter-spacing: -1px;
-}
-
-.metrics-bar__value span {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--clr-accent);
-}
-
-.metrics-bar__label {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.4);
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.metrics-bar__divider {
-  width: 1px;
-  height: 48px;
-  background: rgba(255,255,255,0.08);
-  flex-shrink: 0;
-}
+@media (min-width: 860px) { .metrics-bar__container { grid-template-columns: repeat(5, 1fr); } }
 
 /* ============================================================
    10. About Section
@@ -912,10 +862,8 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .metrics-bar__item {
-    padding: 0.5rem 1.5rem;
-  }
 }
+
 
 /* ============================================================
    18. Responsive — Mobile (max 768px)
@@ -935,15 +883,6 @@ h1, h2, h3 { line-height: 1.07; letter-spacing: -0.03em; font-weight: 600; }
 
   .education__grid {
     grid-template-columns: 1fr;
-  }
-
-  .metrics-bar__container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .metrics-bar__divider {
-    display: none;
   }
 
   .timeline {
