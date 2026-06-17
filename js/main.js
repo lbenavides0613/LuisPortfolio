@@ -349,6 +349,7 @@ const translations = {
     'cs.cp.m2':       'Monthly Revenue',
     'cs.cp.m3':       'Moved Daily',
     'cs.cp.industry': 'Cash Management · Security',
+    'cs.ai.badge': 'AI',
 
     // Skills
     'sk.label': 'Toolkit',
@@ -513,6 +514,7 @@ const translations = {
     'cs.cp.m2':       'Ingresos Mensuales',
     'cs.cp.m3':       'Movidos Diariamente',
     'cs.cp.industry': 'Gestión de Efectivo · Seguridad',
+    'cs.ai.badge': 'IA',
 
     // Skills
     'sk.label': 'Herramientas',
